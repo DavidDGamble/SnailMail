@@ -1,4 +1,4 @@
-### Capstone Proposal
+# Capstone Proposal
 
 ## Name of Student:
 _David Gamble_
