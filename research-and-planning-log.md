@@ -15,4 +15,7 @@
 ###### 1:00: API research
 - playing with test environment to make api calls to build a postcard
 - testing sample html variables to send to make postcards
+###### 2:00: API research
+- successfully setup and made api call to create front and back templates for postcards
+- successfully setup and made api call to create a contact
 …
