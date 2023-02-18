@@ -21,4 +21,6 @@
 ###### 3:00: API research 
 - successfullly setup and made api call to send a postcard using front and back templates with stored from contact but pdf preview online was not displaying correctly  
 - Setup a google meet for next Friday 2/24 at 8:30 with PostGrid.  Will discuss issues/concerns then.
+###### 4:00: C# research
+- going over old lessons and projects to start planning project setup!
 …
