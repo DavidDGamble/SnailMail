@@ -2,7 +2,7 @@
 
 #### By: _**David Gamble**_
 
-#### _{Brief description of application}_
+#### _This is a web app where users can upload photos and create real life snail mail postcards to send to a friend._
 
 ## Technologies Used
 
