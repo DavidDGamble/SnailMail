@@ -19,6 +19,8 @@ _{This is a detailed description of your application. Give as much detail as nee
 
 ## Setup/Installation Requirements
 
+* _Create a .env file in the apiTest repository with the api key for testing._
+
 * _Clone the repository to your desktop from: {Enter the repository url here}_
 * _Run [$ dotnet run] in the {ProjectName} repository in {ProjectName.Solutions}_
 
