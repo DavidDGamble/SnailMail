@@ -18,4 +18,7 @@
 ###### 2:00: API research
 - successfully setup and made api call to create front and back templates for postcards
 - successfully setup and made api call to create a contact
+###### 3:00: API research 
+- successfullly setup and made api call to send a postcard using front and back templates with stored from contact but pdf preview online was not displaying correctly  
+- Setup a google meet for next Friday 2/24 at 8:30 with PostGrid.  Will discuss issues/concerns then.
 …
