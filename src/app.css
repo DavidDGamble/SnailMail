@@ -1,0 +1,55 @@
+.App {
+  /* text-align: center; */
+}
+
+html {
+  /* text-align: center; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* text-align: center; */
+  width: 600px;
+  height: 408px;
+}
+
+.page {
+  position: relative;
+  width: 600px;
+  height: 408px;
+  overflow: hidden; 
+  border: 1px solid black;
+  background-color: white
+}
+
+.card {
+  position: absolute;
+  margin: 0;
+  padding: 0;   
+  left: 587.9999999999993px;
+  /* top: 11.999999999999048px; */
+  width: 383.9999999999989px;
+  height: 575.9999999999995px;
+  clip: rect(0px, 383.9999999999989, 575.9999999999995, 0px);
+  overflow: visible;
+  transform: rotate(89.99999999999982deg) scaleX(1) scaleY(1);
+  transform-origin: top left;
+}
+
+img {
+  width: 410.99999999999966px;
+  height: 575.9999999999995px;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  margin-top: 0px;
+  margin-left: 0px;
+  opacity: 1;
+  filter:
+  blur(0px)
+  brightness(1);
+}

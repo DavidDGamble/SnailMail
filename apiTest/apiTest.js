@@ -46,7 +46,9 @@ async function createTemplate(templateDescription, templateHTML) {
   return await resp.json();
 }
 
-// below are samples for the html used to make templates for the front and back of postcards
+//vvvvv---below are samples for the html used to make templates for the front and back of postcards---vvvvv
+// Change img width to 410?
+// Remove top from card syle?
 const templateFront = `
 <html>
 <head>
