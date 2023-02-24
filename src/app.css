@@ -4,15 +4,15 @@
 
 html {
   /* text-align: center; */
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 0; */
 }
 
 body {
   /* text-align: center; */
-  width: 600px;
-  height: 408px;
+  /* width: 600px;
+  height: 408px; */
 }
 
 .page {
@@ -52,4 +52,89 @@ img {
   filter:
   blur(0px)
   brightness(1);
+}
+
+/* vvvvv-------------Postcard Back-------------vvvvv */
+.header {
+  position: absolute;
+  left: -75.85924713584288px;
+  top: 24px;
+  transform: rotate(0deg);
+  transform-origin: top left;
+  width: 300px;
+  height: 26px;
+  font-family: 'Roboto';
+  font-size: 20.533333333333335px;
+  font-style: normal;
+  font-weight: normal;
+  color: black;
+  opacity: 1;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: pre-wrap;
+}
+
+.body {
+  position: absolute;
+  left: 24px;
+  top: 57.85597381342078px;
+  transform: rotate(0deg);
+  transform-origin: top left;
+  width: 320px;
+  height: 181px;
+  font-family: 'Roboto';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  color: black;
+  opacity: 1;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: pre-wrap;
+}
+
+.closer {
+  position: absolute;
+  left: -75.85924713584288px;
+  top: 253.68576104746325px;
+  transform: rotate(0deg);
+  transform-origin: top left;
+  width: 300px;
+  height: 26px;
+  font-family: 'Roboto';
+  font-size: 20.533333333333335px;
+  font-style: normal;
+  font-weight: normal;
+  color: black;
+  opacity: 1;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: pre-wrap;
+}
+
+.name {
+  position: absolute;
+  left: 24px;
+  top: 293.94762684124413px;
+  transform: rotate(0deg);
+  transform-origin: top left;
+  width: 300px;
+  height: 26px;
+  font-family: 'Roboto';
+  font-size: 20.533333333333335px;
+  font-style: normal;
+  font-weight: normal;
+  color: black;
+  opacity: 1;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  white-space: pre-wrap;
 }

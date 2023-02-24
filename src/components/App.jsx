@@ -1,6 +1,6 @@
 import PostcardPreview from './PostcardPreview';
 import Test from './Test';
-// import './../app.css';
+import './../app.css';
 
 function App() {
   return (
