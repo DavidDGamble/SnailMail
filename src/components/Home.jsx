@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function Home() {
   return(
     <div className="home">
-      <h1></h1>
+      <h3>Welcome to Snail Mail</h3>
     </div>
   )
 }
