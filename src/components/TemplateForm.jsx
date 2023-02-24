@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const UploadAndDisplayImage = () => {
+function TemplateForm() {
 
   const [selectedImage, setSelectedImage] = useState(null)
   const [header, setHeader] = useState(null)
@@ -11,7 +11,7 @@ const UploadAndDisplayImage = () => {
   return (
     <div className="upload-test">
       <div className="image">
-        <h1>Upload and Display Image using React Hook's</h1>
+        <h1>Upload Postcard Image</h1>
 
         {selectedImage && (
           <div>
@@ -38,11 +38,13 @@ const UploadAndDisplayImage = () => {
           type="file"
           name="myImage"
           onChange={(event) => {
-            console.log(event.target.files[0])
             setSelectedImage(event.target.files[0])
+console.log(selectedImage)
           }}
         />
       </div>
+
+
       <div className="postcard-txt">
         <h1>Upload Postcard Text</h1>
         {/* -----------Postcard Front-------------------- */}
@@ -53,25 +55,16 @@ const UploadAndDisplayImage = () => {
               type="text/css"
               href="https://fonts.googleapis.com/css?family=Roboto" />
           </head>
-
           <body>
             <div class="page">       
                 <div className="header">{header}</div>
-
                 <div className="body">{body}</div>
-
                 <div className="closer">{closer}</div>
-
                 <div className="name">{name}</div>
-
           </div>
         </body>
       </html>
       {/* -----------Postcard Front-------------------- */}
-      <h3>{header}</h3>
-      <p>{body}</p>
-      <h4>{closer}</h4>
-      <h5>{name}</h5>
 
       <form onSubmit={(event) => {
         event.preventDefault()
@@ -87,6 +80,7 @@ const UploadAndDisplayImage = () => {
         <textarea
           type="text"
           name='body'
+          maxLength='440'
           placeholder="Body" /><br />
         <input
           type="text"
@@ -99,8 +93,9 @@ const UploadAndDisplayImage = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
+    <button>Send Postcard!</button>
     </div >
   )
 }
 
-export default UploadAndDisplayImage
+export default TemplateForm

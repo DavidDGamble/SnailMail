@@ -325,3 +325,6 @@ const fromContactId = 'contact_bdogQL22QaAyUpJLJjfwrg';
 const frontTemplateId = 'template_25nfz3ZFoLKEFLTigc1y1D';
 const backTemplateId = 'template_rLZ3cJxHGdwfZHv7sngR9v';
 const postcardSize = '6x4';
+
+//vvvvv---Test max body content---vvvvv
+//This is a test. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dignissimos aperiam, veritatis blanditiis aliquid animi possimus similique praesentium quasi. Vitae, architecto ipsam fugit repudiandae neque quisquam modi porro at veniam.  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate dignissimos aperiam, veritatis blanditiis aliquid animi possimus similique praesentium quasi. Vitae, architezxc.

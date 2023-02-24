@@ -1,12 +1,10 @@
-import PostcardPreview from './PostcardPreview';
-import Test from './Test';
+import TemplateForm from './TemplateForm';
 import './../app.css';
 
 function App() {
   return (
     <div className="App">
-      <Test />
-      {/* <PostcardPreview /> */}
+      <TemplateForm />
     </div>
   );
 }

@@ -15,6 +15,12 @@ body {
   height: 408px; */
 }
 
+textarea {
+  height: 8rem;
+  width: 30rem;
+}
+
+/* vvvvv-------------Postcard Shared-------------vvvvv */
 .page {
   position: relative;
   width: 600px;
@@ -24,6 +30,7 @@ body {
   background-color: white
 }
 
+/* vvvvv-------------Postcard Front-------------vvvvv */
 .card {
   position: absolute;
   margin: 0;
@@ -95,6 +102,7 @@ img {
   letter-spacing: 0;
   text-decoration: none;
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .closer {
