@@ -23,4 +23,8 @@
 - Setup a google meet for next Friday 2/24 at 8:30 with PostGrid.  Will discuss issues/concerns then.
 ###### 4:00: C# research
 - going over old lessons and projects to start planning project setup!
+
+#### Friday, 2/24
+###### 8:00: Site layout planning/base React app project setup
+###### 8:30: Google meet w/ Postgrid rep 
 …
