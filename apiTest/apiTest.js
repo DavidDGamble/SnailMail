@@ -89,7 +89,7 @@ style="
 >
 <img
 
-    src="https://media.istockphoto.com/id/123979928/photo/cactus.jpg?s=612x612&w=0&k=20&c=bEQHhPc-MrYG1MlU-NkUiCLb-6JrvO8f9KUmzd7_r_c="
+    src="https://drive.google.com/file/d/1iCpPdpIVH939KgHLPFC2YYtRyMo26B6x/view?usp=share_link"
     
     style="
         width: 431.99999999999966px;
@@ -302,8 +302,10 @@ async function createPostcardFromScratch(to, fromContactId, frontTemplateId, bac
     body: JSON.stringify({
       to: to,
       from: fromContactId,
-      frontHTML: frontTemplateId,
-      backHTML: backTemplateId,
+      frontTemplate: frontTemplateId,
+      backTemplate: backTemplateId,
+      //frontHTML for sending HTML instead of a template
+      //backHTML for sending HTML instead of a template
       size: postcardSize
     }),
   };
