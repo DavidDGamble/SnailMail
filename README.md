@@ -6,12 +6,11 @@
 
 ## Technologies Used
 
-* _C#_
-* _.NET 6_
-* _ASP.NET Core MVC 6_
-* _Entity Framework Core_
-* _MySql_
-* _MS Tests_
+* _React_
+* _Javascript_
+* _HTML_
+* _CSS_
+* _Firebase_
 
 ## Description
 
