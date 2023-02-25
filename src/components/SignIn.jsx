@@ -58,7 +58,7 @@ SignIn.propTypes = {
   onSignUp: PropTypes.func,
   onSignOut: PropTypes.func,
   onSignIn: PropTypes.func,
-  signUpMessage: PropTypes,
+  signUpMessage: PropTypes.string,
   signInMessage: PropTypes.string,
   signOutMessage: PropTypes.string,
 }

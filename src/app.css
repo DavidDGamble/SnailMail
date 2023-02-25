@@ -36,7 +36,7 @@ textarea {
   margin: 0;
   padding: 0;   
   left: 587.9999999999993px;
-  /* top: 11.999999999999048px; */
+  /* top: 11.999999999999048px; remove from api html? */
   width: 383.9999999999989px;
   height: 575.9999999999995px;
   clip: rect(0px, 383.9999999999989, 575.9999999999995, 0px);
@@ -62,14 +62,14 @@ img {
 }
 
 /* vvvvv-------------Postcard Back-------------vvvvv */
-.header {
+.pcheader {
   position: absolute;
   left: -75.85924713584288px;
-  top: 24px;
+  top: 90px;
   transform: rotate(0deg);
   transform-origin: top left;
   width: 300px;
-  height: 26px;
+  height: 50px;
   font-family: 'Roboto';
   font-size: 20.533333333333335px;
   font-style: normal;
@@ -83,10 +83,10 @@ img {
   white-space: pre-wrap;
 }
 
-.body {
+.pcbody {
   position: absolute;
   left: 24px;
-  top: 57.85597381342078px;
+  top: 125px;
   transform: rotate(0deg);
   transform-origin: top left;
   width: 320px;
@@ -105,10 +105,10 @@ img {
   word-wrap: break-word;
 }
 
-.closer {
+.pccloser {
   position: absolute;
   left: -75.85924713584288px;
-  top: 253.68576104746325px;
+  top: 310px;
   transform: rotate(0deg);
   transform-origin: top left;
   width: 300px;
@@ -126,10 +126,10 @@ img {
   white-space: pre-wrap;
 }
 
-.name {
+.pcname {
   position: absolute;
   left: 24px;
-  top: 293.94762684124413px;
+  top: 350px;
   transform: rotate(0deg);
   transform-origin: top left;
   width: 300px;

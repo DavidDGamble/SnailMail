@@ -57,10 +57,10 @@ console.log(selectedImage)
           </head>
           <body>
             <div class="page">       
-                <div className="header">{header}</div>
-                <div className="body">{body}</div>
-                <div className="closer">{closer}</div>
-                <div className="name">{name}</div>
+                <div className="pcheader">{header}</div>
+                <div className="pcbody">{body}</div>
+                <div className="pccloser">{closer}</div>
+                <div className="pcname">{name}</div>
           </div>
         </body>
       </html>

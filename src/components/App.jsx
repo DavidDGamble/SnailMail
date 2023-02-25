@@ -5,8 +5,7 @@ import PostcardControl from './PostcardControl';
 import { auth } from './../firebase';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-// import TemplateForm from './TemplateForm';
-// import './../app.css';
+import './../app.css';
 
 function App() {
   const [signUpSuccess, setSignUpSuccess] = useState(null)
