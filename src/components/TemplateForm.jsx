@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { storage } from './../firebase'
+import { v4 } from 'uuid'
 
 function TemplateForm() {
-
   const [selectedImage, setSelectedImage] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
+
   const [header, setHeader] = useState(null)
   const [body, setBody] = useState(null)
   const [closer, setCloser] = useState(null)
   const [name, setName] = useState(null)
+
+  const uploadFile = () => {
+    if (selectedImage == null) return
+    console.log(selectedImage)
+    const imageRef = ref(storage, `images/${selectedImage.name + v4()}`)
+    uploadBytes(imageRef, selectedImage).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        console.log(`Current URL: ${url}`)
+        setImageUrl(url)
+      })
+    })  
+    console.log(`imageUrl: ${imageUrl}`)  
+  }  
 
   return (
     <div className="upload-test">
@@ -16,15 +33,15 @@ function TemplateForm() {
         {selectedImage && (
           <div>
             {/* -----------Postcard Front-------------------- */}
-            <html>
-              <body>
+            {/* <html>
+              <body> */}
                 <div className="page" >
                   <div className='card'>
                     <img src={URL.createObjectURL(selectedImage)} />
                   </div>
                 </div>
-              </body>
-            </html>
+              {/* </body>
+            </html> */}
             {/* -----------Postcard Front-------------------- */}
             <br />
             <button onClick={() => setSelectedImage(null)}>Remove</button>
@@ -39,7 +56,6 @@ function TemplateForm() {
           name="myImage"
           onChange={(event) => {
             setSelectedImage(event.target.files[0])
-console.log(selectedImage)
           }}
         />
       </div>
@@ -48,22 +64,22 @@ console.log(selectedImage)
       <div className="postcard-txt">
         <h1>Upload Postcard Text</h1>
         {/* -----------Postcard Front-------------------- */}
-        <html>
-          <head>
+        {/* <html>
+          <head> */}
             <link
               rel="stylesheet"
               type="text/css"
               href="https://fonts.googleapis.com/css?family=Roboto" />
-          </head>
-          <body>
-            <div class="page">       
+          {/* </head>
+          <body> */}
+            <div className="page">       
                 <div className="pcheader">{header}</div>
                 <div className="pcbody">{body}</div>
                 <div className="pccloser">{closer}</div>
                 <div className="pcname">{name}</div>
           </div>
-        </body>
-      </html>
+        {/* </body>
+      </html> */}
       {/* -----------Postcard Front-------------------- */}
 
       <form onSubmit={(event) => {
@@ -93,7 +109,8 @@ console.log(selectedImage)
         <button type="submit">Submit</button>
       </form>
     </div>
-    <button>Send Postcard!</button>
+    <button onClick={uploadFile}>Send Postcard!</button>
+    {imageUrl} 
     </div >
   )
 }

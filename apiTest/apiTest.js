@@ -89,7 +89,7 @@ style="
 >
 <img
 
-    src="https://drive.google.com/file/d/1iCpPdpIVH939KgHLPFC2YYtRyMo26B6x/view?usp=share_link"
+    src="https://firebasestorage.googleapis.com/v0/b/snail-mail-95f4c.appspot.com/o/images%2Fpostcard-test.png0e7c7fbd-8a36-4846-aa51-4edb0c3d229a?alt=media&token=e0dc69ad-223a-49c0-a457-17380e1aa3bb"
     
     style="
         width: 431.99999999999966px;
@@ -233,7 +233,7 @@ const templateBack = `
 </html>
 `;
 
-const templateDescription = 'Test template' // Insert your description here
+const templateDescription = 'Test template w/ firebase img' // Insert your description here
 
 
 // Function for creating a new contact with API---vvvvv
