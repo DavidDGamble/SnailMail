@@ -20,7 +20,7 @@ export async function createTemplate(tempDescription, tempHTML) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres)}`)
+            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
             resolve()
           })
           .catch((error) => {
@@ -32,6 +32,17 @@ export async function createTemplate(tempDescription, tempHTML) {
       })
   })
 }
+// vvvvv---createTemplateResponse---vvvvv
+// {
+//   "id": "template_tBnVEzz878mXLbHQaz86j8",
+//   "object": "template",
+//   "live": false,
+//   "deleted": false,
+//   "description": "Test",
+//   "html": "<b>Hello</b> {{to.firstName}}!",
+//   "createdAt": "2020-11-12T23:23:47.974Z",
+//   "updatedAt": "2020-11-12T23:23:47.974Z"
+// }
 
 export async function createContact(contactInfo) {
   const { firstName, lastName, description, address } = contactInfo
@@ -54,7 +65,7 @@ export async function createContact(contactInfo) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres)}`)
+            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
             resolve()
           })
           .catch((error) => {
@@ -66,6 +77,32 @@ export async function createContact(contactInfo) {
       })
   })
 }
+// vvvvv---createContact Response---vvvvv
+// {
+//   "id": "contact_pxd7wnnD1xY6H6etKNvjb4",
+//   "object": "contact",
+//   "live": false,
+//   "addressLine1": "20-20 BAY ST",
+//   "addressLine2": "FLOOR 11",
+//   "addressStatus": "verified",
+//   "city": "TORONTO",
+//   "companyName": "PostGrid",
+//   "country": "CANADA",
+//   "countryCode": "CA",
+//   "description": "Kevin Smith's contact information ",
+//   "email": "kevinsmith@postgrid.com",
+//   "firstName": "Kevin",
+//   "jobTitle": "Manager",
+//   "lastName": "Smith",
+//   "metadata": {
+//     "friend": "no"
+//   },
+//   "phoneNumber": "9059059059",
+//   "postalOrZip": "M5J 2N8",
+//   "provinceOrState": "ON",
+//   "createdAt": "2022-02-16T15:08:41.052Z",
+//   "updatedAt": "2022-02-17T16:58:10.063Z"
+// }
 
 export async function createPostcard(bodyInfo) {
   const { to, from, frontTempId, backTempId } = bodyInfo
@@ -78,8 +115,10 @@ export async function createPostcard(bodyInfo) {
     body: JSON.stringify({
       to: to,
       from: from,
-      frontTemplate: frontTempId,
-      backTemplate: backTempId,
+      frontHTML: frontTempId,
+      backHTML: backTempId,
+      // frontTemplate: frontTempId,
+      // backTemplate: backTempId,
       size: '6x4'
     })
   }
@@ -89,7 +128,7 @@ export async function createPostcard(bodyInfo) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres)}`)
+            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
             resolve()
           })
           .catch((error) => {
@@ -101,6 +140,32 @@ export async function createPostcard(bodyInfo) {
       })
   })
 }
+// vvvvv---createPostcard Response---vvvvv
+// {
+//   "id": "postcard_xnSK1RPcqbYY7y6z8qoy7j",
+//   "object": "postcard",
+//   "live": true,
+//   "backTemplate": "template_gGF4jRzHBNogJrju2JHC2T",
+//   "frontTemplate": "template_gGF4jRzHBNogJrju2JHC2T",
+//   "sendDate": "2020-12-23T07:08:17.172Z",
+//   "size": "6x4",
+//   "status": "ready",
+//   "to": {
+//     "id": "contact_6fMMFdvk7YSSKVgaKyJaQS",
+//     "object": "contact",
+//     "addressLine1": "20-20 BAY ST",
+//     "addressLine2": "",
+//     "addressStatus": "corrected",
+//     "city": "TORONTO",
+//     "country": "CANADA",
+//     "countryCode": "CA",
+//     "firstName": "Kevin",
+//     "postalOrZip": "M5J 2N8",
+//     "provinceOrState": "ON"
+//   },
+//   "createdAt": "2020-12-23T07:08:17.178Z",
+//   "updatedAt": "2020-12-23T07:08:17.178Z"
+// }
 
 export function createFrontTemp(url) {
   return (
@@ -192,19 +257,26 @@ export function createBackTemp(backInfo) {
         <div class="page" style="background-color: white"       
           <div style="
             position: absolute;
-            left: -75.85924713584288px;
-            top: 24px;
+
+            left: 33.946251768034px;
+            top: 157.9999999999992px;
+
             transform: rotate(0deg);
             transform-origin: top left;
-            width: 300px;
-            height: 26px;
+
+            width: 314px;
+            height: 27px;
+
             font-family: 'Roboto';
-            font-size: 20.533333333333335px;
+            font-size: 21px;
             font-style: normal;
             font-weight: normal;
+
             color: black;
             opacity: 1;
-            text-align: center;
+
+            text-align: left;
+
             line-height: 1.2;
             letter-spacing: 0;
             text-decoration: none;
@@ -212,19 +284,26 @@ export function createBackTemp(backInfo) {
           ">${backInfo.header}</div>
           <div style="
             position: absolute;
-            left: 24px;
-            top: 57.85597381342078px;
+
+            left: 33.946251768034514px;
+            top: 181.00000000000006px;
+
             transform: rotate(0deg);
             transform-origin: top left;
-            width: 320px;
-            height: 181px;
+
+            width: 315px;
+            height: 19px;
+
             font-family: 'Roboto';
             font-size: 15px;
             font-style: normal;
             font-weight: normal;
+
             color: black;
             opacity: 1;
-            text-align: center;
+
+            text-align: justify;
+
             line-height: 1.2;
             letter-spacing: 0;
             text-decoration: none;
@@ -232,19 +311,26 @@ export function createBackTemp(backInfo) {
           ">${backInfo.body}</div>
           <div style="
             position: absolute;
-            left: -75.85924713584288px;
-            top: 253.68576104746325px;
+
+            left: 33.946251768034px;
+            top: 284.6874115983028px;
+
             transform: rotate(0deg);
             transform-origin: top left;
+
             width: 300px;
             height: 26px;
+
             font-family: 'Roboto';
             font-size: 20.533333333333335px;
             font-style: normal;
             font-weight: normal;
+
             color: black;
             opacity: 1;
-            text-align: center;
+
+            text-align: justify;
+
             line-height: 1.2;
             letter-spacing: 0;
             text-decoration: none;
@@ -252,19 +338,26 @@ export function createBackTemp(backInfo) {
           ">${backInfo.closer}</div>
           <div style="
             position: absolute;
-            left: 24px;
-            top: 293.94762684124413px;
+
+            left: 57.59999999000004px;
+            top: 310.00000000000006px;
+
             transform: rotate(0deg);
             transform-origin: top left;
+
             width: 300px;
             height: 26px;
+
             font-family: 'Roboto';
             font-size: 20.533333333333335px;
             font-style: normal;
             font-weight: normal;
+
             color: black;
             opacity: 1;
-            text-align: center;
+
+            text-align: justify;
+
             line-height: 1.2;
             letter-spacing: 0;
             text-decoration: none;

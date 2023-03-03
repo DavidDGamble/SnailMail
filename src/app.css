@@ -62,85 +62,262 @@ img {
 /* vvvvv-------------Postcard Back-------------vvvvv */
 .pcheader {
   position: absolute;
-  left: -75.85924713584288px;
-  top: 90px;
-  transform: rotate(0deg);
-  transform-origin: top left;
-  width: 300px;
-  height: 50px;
-  font-family: 'Roboto';
-  font-size: 20.533333333333335px;
-  font-style: normal;
-  font-weight: normal;
-  color: black;
-  opacity: 1;
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-decoration: none;
-  white-space: pre-wrap;
+
+                    left: 33.946251768034px;
+                    top: 157.9999999999992px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 314px;
+                    height: 27px;
+
+                    font-family: 'Roboto';
+                    font-size: 21px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: left;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
 }
 
 .pcbody {
   position: absolute;
-  left: 24px;
-  top: 125px;
-  transform: rotate(0deg);
-  transform-origin: top left;
-  width: 320px;
-  height: 181px;
-  font-family: 'Roboto';
-  font-size: 15px;
-  font-style: normal;
-  font-weight: normal;
-  color: black;
-  opacity: 1;
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-decoration: none;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+
+                    left: 33.946251768034514px;
+                    top: 181.00000000000006px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 315px;
+                    height: 19px;
+
+                    font-family: 'Roboto';
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
 }
 
 .pccloser {
   position: absolute;
-  left: -75.85924713584288px;
-  top: 310px;
-  transform: rotate(0deg);
-  transform-origin: top left;
-  width: 300px;
-  height: 26px;
-  font-family: 'Roboto';
-  font-size: 20.533333333333335px;
-  font-style: normal;
-  font-weight: normal;
-  color: black;
-  opacity: 1;
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-decoration: none;
-  white-space: pre-wrap;
+
+                    left: 33.946251768034px;
+                    top: 284.6874115983028px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 300px;
+                    height: 26px;
+
+                    font-family: 'Roboto';
+                    font-size: 20.533333333333335px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
 }
 
 .pcname {
   position: absolute;
-  left: 24px;
-  top: 350px;
-  transform: rotate(0deg);
-  transform-origin: top left;
-  width: 300px;
-  height: 26px;
-  font-family: 'Roboto';
-  font-size: 20.533333333333335px;
-  font-style: normal;
-  font-weight: normal;
-  color: black;
-  opacity: 1;
-  text-align: center;
-  line-height: 1.2;
-  letter-spacing: 0;
-  text-decoration: none;
-  white-space: pre-wrap;
+
+                    left: 57.59999999000004px;
+                    top: 310.00000000000006px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 300px;
+                    height: 26px;
+
+                    font-family: 'Roboto';
+                    font-size: 20.533333333333335px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
 }
+
+
+/* <html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 600px;
+            height: 408px;
+        }
+
+        .page {
+            position: relative;
+            width: 600px;
+            height: 408px;
+            overflow: hidden;
+
+            
+        }
+    </style>
+
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto" />
+</head>
+<body>
+    
+    <div class="page" style="background-color: white">
+        
+                <div style="
+                    position: absolute;
+
+                    left: 33.946251768034px;
+                    top: 157.9999999999992px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 314px;
+                    height: 27px;
+
+                    font-family: 'Roboto';
+                    font-size: 21px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: left;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
+                ">Header</div>
+
+                <div style="
+                    position: absolute;
+
+                    left: 33.946251768034415px;
+                    top: 185.00000000000117px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 298px;
+                    height: 102px;
+
+                    font-family: 'Roboto';
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
+                ">This is a sample to see how many words i can have on a postcard.  So far i have one sentence before this one plus this current sentence equals two.  I can fit a third sentence but it is starting to fill up.  I believe this will be the last sentence which is now filling the whole card. aa</div>
+
+                <div style="
+                    position: absolute;
+
+                    left: 33.946251768034px;
+                    top: 284.6874115983028px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 300px;
+                    height: 26px;
+
+                    font-family: 'Roboto';
+                    font-size: 20.533333333333335px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
+                ">Closer</div>
+
+                <div style="
+                    position: absolute;
+
+                    left: 57.59999999000004px;
+                    top: 310.00000000000006px;
+
+                    transform: rotate(0deg);
+                    transform-origin: top left;
+
+                    width: 300px;
+                    height: 26px;
+
+                    font-family: 'Roboto';
+                    font-size: 20.533333333333335px;
+                    font-style: normal;
+                    font-weight: normal;
+
+                    color: black;
+                    opacity: 1;
+
+                    text-align: justify;
+
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
+                ">Name</div>
+    </div>
+
+</body>
+</html> */

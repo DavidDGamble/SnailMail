@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { storage } from './../firebase'
 import { v4 } from 'uuid'
@@ -8,32 +8,43 @@ import * as u from './../utilities/utilities'
 function TemplateForm(props) {
   const [selectedImage, setSelectedImage] = useState(null)
 
-  const { imageUrl, setImageUrl, tempBackInfo, setTempBackInfo } = props
+  const { imageUrl, setImageUrl, tempBackInfo, setTempBackInfo, setFrontTemplate, setBackTemplate } = props
 
   const uploadFile = () => {
     if (selectedImage == null) return
-    console.log(selectedImage)
     const imageRef = ref(storage, `images/${selectedImage.name + v4()}`)
     uploadBytes(imageRef, selectedImage).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
-        console.log(`Current URL: ${url}`)
+        // console.log(`Current URL: ${url}`)
         setImageUrl(url)
       })
     })  
-    console.log(`imageUrl: ${imageUrl}`)  
   }  
 
-// Retrieving the url and setImageUrl does not happen immediately and everything after uploadFile() runs before it is set
-  const handleSendPostcard = () => { 
-    uploadFile()
-    const tempFrontHTML = u.createFrontTemp(imageUrl)
-    const tempBackHTML = u.createBackTemp(tempBackInfo)
-    // change description in future?
-    u.createTemplate('test from Snail Mail', tempFrontHTML)
-    console.log('Front temp api call ran')
-    u.createTemplate('test from Snail Mail', tempBackHTML)
-    console.log('Back temp api call ran')
-  }
+  useEffect(() => {
+    // console.log(`imageUrl: ${imageUrl}`)
+    let frontResponse = null 
+    let backResponse = null 
+    if (imageUrl != null ) {
+      const tempFrontHTML = u.createFrontTemp(imageUrl)
+      const tempBackHTML = u.createBackTemp(tempBackInfo)
+      setFrontTemplate(tempFrontHTML)
+      setBackTemplate(tempBackHTML)
+      // vvvvv---creates a template in PostGrid---vvvvv
+      // change description in future????
+      // frontResponse = u.createTemplate('test from Snail Mail', tempFrontHTML)
+      // backResponse = u.createTemplate('test from Snail Mail', tempBackHTML)
+      props.handleTemplateForm()
+      props.handleAddressForm()
+    } else {
+      //Handle error when user tries to send a postcard without an image
+      console.log('error: no img uploaded')
+    }
+    // if (frontResponse != null && backResponse != null) {
+      // props.handleTemplateForm()
+      // props.handleAddressForm()
+    // }
+  }, [imageUrl])
 
   return (
     <div className="upload-test">
@@ -108,7 +119,7 @@ function TemplateForm(props) {
         <textarea
           type="text"
           name='body'
-          maxLength='440'
+          maxLength='250'
           placeholder="Body" /><br />
         <input
           type="text"
@@ -121,7 +132,7 @@ function TemplateForm(props) {
         <button type="submit">Submit</button>
       </form>
     </div>
-    <button onClick={handleSendPostcard}>Send Postcard!</button>
+    <button onClick={uploadFile}>Send Postcard!</button>
     {imageUrl} 
     </div >
   )
@@ -131,7 +142,11 @@ TemplateForm.propTypes = {
   imageUrl: PropTypes.string,
   setImageUrl: PropTypes.func,
   tempBackInfo: PropTypes.object,
-  setTempBackInfo: PropTypes.func
+  setTempBackInfo: PropTypes.func,
+  setFrontTemplate: PropTypes.func,
+  setBackTemplate: PropTypes.func,
+  handleTemplateForm: PropTypes.func,
+  handleAddressForm: PropTypes.func
 }
 
 export default TemplateForm
