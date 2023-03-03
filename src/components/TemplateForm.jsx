@@ -2,15 +2,13 @@ import React, { useState } from "react"
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { storage } from './../firebase'
 import { v4 } from 'uuid'
+import PropTypes from 'prop-types'
+import * as u from './../utilities/utilities'
 
-function TemplateForm() {
+function TemplateForm(props) {
   const [selectedImage, setSelectedImage] = useState(null)
-  const [imageUrl, setImageUrl] = useState(null)
 
-  const [header, setHeader] = useState(null)
-  const [body, setBody] = useState(null)
-  const [closer, setCloser] = useState(null)
-  const [name, setName] = useState(null)
+  const { imageUrl, setImageUrl, tempBackInfo, setTempBackInfo } = props
 
   const uploadFile = () => {
     if (selectedImage == null) return
@@ -24,6 +22,18 @@ function TemplateForm() {
     })  
     console.log(`imageUrl: ${imageUrl}`)  
   }  
+
+// Retrieving the url and setImageUrl does not happen immediately and everything after uploadFile() runs before it is set
+  const handleSendPostcard = () => { 
+    uploadFile()
+    const tempFrontHTML = u.createFrontTemp(imageUrl)
+    const tempBackHTML = u.createBackTemp(tempBackInfo)
+    // change description in future?
+    u.createTemplate('test from Snail Mail', tempFrontHTML)
+    console.log('Front temp api call ran')
+    u.createTemplate('test from Snail Mail', tempBackHTML)
+    console.log('Back temp api call ran')
+  }
 
   return (
     <div className="upload-test">
@@ -73,10 +83,10 @@ function TemplateForm() {
           {/* </head>
           <body> */}
             <div className="page">       
-                <div className="pcheader">{header}</div>
-                <div className="pcbody">{body}</div>
-                <div className="pccloser">{closer}</div>
-                <div className="pcname">{name}</div>
+                <div className="pcheader">{tempBackInfo.header}</div>
+                <div className="pcbody">{tempBackInfo.body}</div>
+                <div className="pccloser">{tempBackInfo.closer}</div>
+                <div className="pcname">{tempBackInfo.name}</div>
           </div>
         {/* </body>
       </html> */}
@@ -84,10 +94,12 @@ function TemplateForm() {
 
       <form onSubmit={(event) => {
         event.preventDefault()
-        setHeader(event.target.header.value)
-        setBody(event.target.body.value)
-        setCloser(event.target.closer.value)
-        setName(event.target.name.value)
+        setTempBackInfo({
+          header: event.target.header.value,
+          body: event.target.body.value,
+          closer: event.target.closer.value,
+          name: event.target.name.value
+        })
       }}>
         <input
           type="text"
@@ -109,10 +121,17 @@ function TemplateForm() {
         <button type="submit">Submit</button>
       </form>
     </div>
-    <button onClick={uploadFile}>Send Postcard!</button>
+    <button onClick={handleSendPostcard}>Send Postcard!</button>
     {imageUrl} 
     </div >
   )
+}
+
+TemplateForm.propTypes = {
+  imageUrl: PropTypes.string,
+  setImageUrl: PropTypes.func,
+  tempBackInfo: PropTypes.object,
+  setTempBackInfo: PropTypes.func
 }
 
 export default TemplateForm

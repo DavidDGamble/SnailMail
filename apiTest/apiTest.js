@@ -76,14 +76,14 @@ const templateFront = `
 style="
     position: absolute;
     margin: 0;
-    padding: 0;   
-    left: 587.9999999999993px;
-    top: 11.999999999999048px;
-    width: 383.9999999999989px;
-    height: 575.9999999999995px;
-    clip: rect(0px, 383.9999999999989, 575.9999999999995, 0px);
+    padding: 0;
+    left: 600.000084102592px;
+    top: -21.00003153847359px;
+    width: 450.00006307694395px;
+    height: 600.0000841025919px;
+    clip: rect(0px, 450.00006307694395, 600.0000841025919, 0px);
     overflow: visible;
-    transform: rotate(89.99999999999982deg) scaleX(1) scaleY(1);
+    transform: rotate(89.9999999999997deg) scaleX(1) scaleY(1);
     transform-origin: top left;
 "
 >
@@ -92,8 +92,8 @@ style="
     src="https://firebasestorage.googleapis.com/v0/b/snail-mail-95f4c.appspot.com/o/images%2Fpostcard-test.png0e7c7fbd-8a36-4846-aa51-4edb0c3d229a?alt=media&token=e0dc69ad-223a-49c0-a457-17380e1aa3bb"
     
     style="
-        width: 431.99999999999966px;
-        height: 575.9999999999995px;
+        width: 450.00006307694395px;
+        height: 600.0000841025919px;
         position: absolute;
         margin: 0;
         padding: 0;
@@ -103,8 +103,8 @@ style="
         margin-left: 0px;
         opacity: 1;
         filter:
-blur(0px)
-brightness(1);
+        blur(0px)
+        brightness(1);
     "
 />
 </div>
