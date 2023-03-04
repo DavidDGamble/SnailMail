@@ -1,4 +1,11 @@
 ### Research & Planning Log
+#### Notes
+- PostGrid 
+- - _Everything is good on SnailMail side I just need to look into why you have to hit the button twice after submitting address.  States not set until second button press.  Maybe use a useEffect()?_
+- - _Dial in html sent for back template.  Looks like shit._
+- Srtrip
+- - _Test setup in google-pay-test project seems to be working.  Plug it into project to complete purchasing of postcard!_
+
 #### Friday, 2/17
 ###### 8:00: Initial project setup
 ###### 9:00: API research
