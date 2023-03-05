@@ -2,6 +2,7 @@
 //                 .catch((error) => {
 //                   console.log(error)
 //                 })
+
 export async function createTemplate(tempDescription, tempHTML) {
   const requestOptions = {
     method: 'POST',
@@ -115,6 +116,7 @@ export async function createPostcard(bodyInfo) {
     body: JSON.stringify({
       to: to,
       from: from,
+      //vvvvv---using HTML instead of id for non users---vvvvv
       frontHTML: frontTempId,
       backHTML: backTempId,
       // frontTemplate: frontTempId,
@@ -230,141 +232,73 @@ export function createFrontTemp(url) {
 export function createBackTemp(backInfo) {
   return (
     `<html>
-      <head>
-        <style>
-          * {
+<head>
+    <style>
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-          }
-          body {
+        }
+
+        body {
             width: 600px;
             height: 408px;
-          }
-          .page {
+        }
+
+        .page {
             position: relative;
             width: 600px;
             height: 408px;
             overflow: hidden;
-          }
-        </style>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto" />
-      </head>
-      <body>
-        <div class="page" style="background-color: white"       
-          <div style="
-            position: absolute;
 
-            left: 33.946251768034px;
-            top: 157.9999999999992px;
+            
+        }
+    </style>
 
-            transform: rotate(0deg);
-            transform-origin: top left;
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto" />
+</head>
+<body>
+    
+    <div class="page" style="background-color: white">
+        
+                <div style="
+                    position: absolute;
 
-            width: 314px;
-            height: 27px;
+                    left: 31.946251768034532px;
+                    top: 160.0000000000004px;
 
-            font-family: 'Roboto';
-            font-size: 21px;
-            font-style: normal;
-            font-weight: normal;
+                    transform: rotate(0deg);
+                    transform-origin: top left;
 
-            color: black;
-            opacity: 1;
+                    width: 320px;
+                    height: 163px;
 
-            text-align: left;
+                    font-family: 'Roboto';
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: normal;
 
-            line-height: 1.2;
-            letter-spacing: 0;
-            text-decoration: none;
-            white-space: pre-wrap;
-          ">${backInfo.header}</div>
-          <div style="
-            position: absolute;
+                    color: black;
+                    opacity: 1;
 
-            left: 33.946251768034514px;
-            top: 181.00000000000006px;
+                    text-align: justify;
 
-            transform: rotate(0deg);
-            transform-origin: top left;
+                    line-height: 1.2;
+                    letter-spacing: 0;
+                    text-decoration: none;
+                    white-space: pre-wrap;
+                ">
+                    <span style="font-weight: bold; font-size: 1.5rem;">${backInfo.header}</span>
+                    <span style="float: left">${backInfo.body}</span>
+                    <span style="font-weight: bold; float: left; margin-left: 1rem;">${backInfo.closer}</span>
+                    <span style="float: left; margin-left: 2rem;">${backInfo.name}</span>
+                </div>
+    </div>
 
-            width: 315px;
-            height: 19px;
-
-            font-family: 'Roboto';
-            font-size: 15px;
-            font-style: normal;
-            font-weight: normal;
-
-            color: black;
-            opacity: 1;
-
-            text-align: justify;
-
-            line-height: 1.2;
-            letter-spacing: 0;
-            text-decoration: none;
-            white-space: pre-wrap;
-          ">${backInfo.body}</div>
-          <div style="
-            position: absolute;
-
-            left: 33.946251768034px;
-            top: 284.6874115983028px;
-
-            transform: rotate(0deg);
-            transform-origin: top left;
-
-            width: 300px;
-            height: 26px;
-
-            font-family: 'Roboto';
-            font-size: 20.533333333333335px;
-            font-style: normal;
-            font-weight: normal;
-
-            color: black;
-            opacity: 1;
-
-            text-align: justify;
-
-            line-height: 1.2;
-            letter-spacing: 0;
-            text-decoration: none;
-            white-space: pre-wrap;
-          ">${backInfo.closer}</div>
-          <div style="
-            position: absolute;
-
-            left: 57.59999999000004px;
-            top: 310.00000000000006px;
-
-            transform: rotate(0deg);
-            transform-origin: top left;
-
-            width: 300px;
-            height: 26px;
-
-            font-family: 'Roboto';
-            font-size: 20.533333333333335px;
-            font-style: normal;
-            font-weight: normal;
-
-            color: black;
-            opacity: 1;
-
-            text-align: justify;
-
-            line-height: 1.2;
-            letter-spacing: 0;
-            text-decoration: none;
-            white-space: pre-wrap;
-          ">${backInfo.name}</div>
-        </div>
-      </body>
-    </html>`
+</body>
+</html>`
   )
 }

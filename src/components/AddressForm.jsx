@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
-  const { senderInfo, setSenderInfo, receiverInfo, setReceiverInfo, frontTemplate, backTemplate } = props
+  const { frontTemplate, backTemplate } = props
   
   return (
     <div className="address-form">
       <h1>Sender and Receiver Info</h1>
       <form onSubmit={(event) => {
         event.preventDefault()
-        setSenderInfo({
+        const senderInfo = ({
           addressLine1: event.target.toAddress.value,
           city: event.target.toCity.value,
           provinceOrState: event.target.toState.value,
@@ -18,7 +18,7 @@ function AddressForm(props) {
           firstName: event.target.toFirstName.value,
           lastName: event.target.toLastName.value,
         })
-        setReceiverInfo({
+        const receiverInfo = ({
           addressLine1: event.target.fromAddress.value,
           city: event.target.fromCity.value,
           provinceOrState: event.target.fromState.value,
@@ -35,7 +35,9 @@ function AddressForm(props) {
         console.log(senderInfo)
         console.log(receiverInfo)
         const result = u.createPostcard(body)
-        console.log(JSON.stringify(result))
+          .then(result => {
+            console.log(JSON.stringify(result))
+          })
       }}>
         <h3>Sender's Info</h3><hr/>
         <input 
@@ -105,18 +107,11 @@ function AddressForm(props) {
   )
 }
 
-// addressLine1: '47 Dietz Ave S',
-// city: 'Las Vegas',
-// provinceOrState: 'NV',
-// postalOrZip: '12345',
-// firstName: 'John',
-// lastName: 'Adams',
-
 AddressForm.propTypes = {
-  senderInfo: PropTypes.object,
-  setSenderInfo: PropTypes.func,
-  receiverInfo: PropTypes.object,
-  setReceiverInfo: PropTypes.func,
+  // senderInfo: PropTypes.object,
+  // setSenderInfo: PropTypes.func,
+  // receiverInfo: PropTypes.object,
+  // setReceiverInfo: PropTypes.func,
   frontTemplate: PropTypes.string,
   backTemplate: PropTypes.string
 }

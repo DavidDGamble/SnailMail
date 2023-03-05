@@ -94,10 +94,16 @@ function TemplateForm(props) {
           {/* </head>
           <body> */}
             <div className="page">       
-                <div className="pcheader">{tempBackInfo.header}</div>
+                {/* <div className="pcheader">{tempBackInfo.header}</div>
                 <div className="pcbody">{tempBackInfo.body}</div>
                 <div className="pccloser">{tempBackInfo.closer}</div>
-                <div className="pcname">{tempBackInfo.name}</div>
+                <div className="pcname">{tempBackInfo.name}</div> */}
+                <div className="postcard-contents">
+                  <div className="pc-header">{tempBackInfo.header}</div><br/>
+                  <span className="pc-body">{tempBackInfo.body}</span><br/>
+                  <span className="pc-closer">{tempBackInfo.closer}</span><br/>
+                  <span className="pc-name">{tempBackInfo.name}</span>
+                </div>
           </div>
         {/* </body>
       </html> */}
