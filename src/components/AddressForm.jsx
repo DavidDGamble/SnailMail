@@ -4,6 +4,16 @@ import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
   const { frontTemplate, backTemplate } = props
+
+  const handleSubmit = async (bodyInfo) => {
+    const result = await u.createPostcard(bodyInfo)
+    const jsonResult = JSON.stringify(result)
+    
+    console.log(jsonResult)
+    if (jsonResult.status === 'ready') {
+      console.log(jsonResult)
+    }
+  } 
   
   return (
     <div className="address-form">
@@ -32,12 +42,7 @@ function AddressForm(props) {
           frontTempId: frontTemplate,
           backTempId: backTemplate
         }
-        console.log(senderInfo)
-        console.log(receiverInfo)
-        const result = u.createPostcard(body)
-          .then(result => {
-            console.log(JSON.stringify(result))
-          })
+        handleSubmit(body)
       }}>
         <h3>Sender's Info</h3><hr/>
         <input 

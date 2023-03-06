@@ -21,6 +21,7 @@ function TemplateForm(props) {
     })  
   }  
 
+
   useEffect(() => {
     // console.log(`imageUrl: ${imageUrl}`)
     let frontResponse = null 
@@ -30,6 +31,7 @@ function TemplateForm(props) {
       const tempBackHTML = u.createBackTemp(tempBackInfo)
       setFrontTemplate(tempFrontHTML)
       setBackTemplate(tempBackHTML)
+
       // vvvvv---creates a template in PostGrid---vvvvv
       // change description in future????
       // frontResponse = u.createTemplate('test from Snail Mail', tempFrontHTML)

@@ -17,7 +17,6 @@ function PostcardControl() {
   const [viewAddressForm, setViewAddressForm] = useState(false)
 
   const handleTemplateForm = () => { setViewTemplateForm(!viewTemplateForm) }
-  // const handleTemplateForm = () => { setViewAddressForm(!viewAddressForm) } //For Testing!
   const hanldeAddressForm = () => { setViewAddressForm(!viewAddressForm) }
 
   let currVisibleState = null

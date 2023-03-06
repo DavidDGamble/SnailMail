@@ -21,8 +21,8 @@ export async function createTemplate(tempDescription, tempHTML) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
-            resolve()
+            // console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
+            resolve(jres)
           })
           .catch((error) => {
             reject(error)
@@ -66,8 +66,8 @@ export async function createContact(contactInfo) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
-            resolve()
+            // console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
+            resolve(jres)
           })
           .catch((error) => {
             reject(error)
@@ -130,8 +130,8 @@ export async function createPostcard(bodyInfo) {
       .then((res) => {
         res.json()
           .then((jres) => {
-            console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
-            resolve()
+            // console.log(`Fetch response: ${JSON.stringify(jres, null, 2)}`)
+            resolve(jres)
           })
           .catch((error) => {
             reject(error)
