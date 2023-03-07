@@ -20,26 +20,15 @@ function TemplateForm(props) {
     })  
   }  
 
-
   useEffect(() => {
-    let frontResponse = null 
-    let backResponse = null 
     if (imageUrl != null ) {
       const tempFrontHTML = u.createFrontTemp(imageUrl)
       const tempBackHTML = u.createBackTemp(tempBackInfo)
       setFrontTemplate(tempFrontHTML)
       setBackTemplate(tempBackHTML)
-      // vvvvv---creates a template in PostGrid---vvvvv
-      // change description in future????
-      // frontResponse = u.createTemplate('test from Snail Mail', tempFrontHTML)
-      // backResponse = u.createTemplate('test from Snail Mail', tempBackHTML)
       props.handleTemplateForm()
       props.handleAddressForm()
     }
-    // if (frontResponse != null && backResponse != null) {
-      // props.handleTemplateForm()
-      // props.handleAddressForm()
-    // }
   }, [imageUrl])
 
   let button = null
@@ -56,7 +45,7 @@ function TemplateForm(props) {
             {/* -----------Postcard Front-------------------- */}
                 <div className="page" >
                   <div className='card'>
-                    <img src={URL.createObjectURL(selectedImage)} />
+                    <img src={URL.createObjectURL(selectedImage)} alt="User upload." />
                   </div>
                 </div>
             {/* -----------Postcard Front-------------------- */}

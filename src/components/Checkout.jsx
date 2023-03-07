@@ -45,6 +45,8 @@ const Checkout = () => {
 
   if (stripeError) alert(stripeError);
 
+  
+
   return (
     <div className="checkout">
       <h1>Stripe Checkout</h1>
