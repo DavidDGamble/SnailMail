@@ -46,7 +46,7 @@ export async function createTemplate(tempDescription, tempHTML) {
 // }
 
 export async function createContact(contactInfo) {
-  const { firstName, lastName, description, address } = contactInfo
+  const { addressLine1, city, provinceOrState, postalOrZip, firstName, lastName } = contactInfo
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -54,10 +54,12 @@ export async function createContact(contactInfo) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
+      addressLine1: addressLine1,
+      city: city,
+      provinceOrState: provinceOrState,
+      postalOrZip: postalOrZip,
       firstName: firstName,
-      lastName: lastName,
-      description: description,
-      addressLine1: address
+      lastName: lastName
     })
   }
 
@@ -106,7 +108,7 @@ export async function createContact(contactInfo) {
 // }
 
 export async function createPostcard(bodyInfo) {
-  const { to, from, frontTempId, backTempId } = bodyInfo
+  const { to, from, frontTemp, backTemp } = bodyInfo
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -117,8 +119,8 @@ export async function createPostcard(bodyInfo) {
       to: to,
       from: from,
       //vvvvv---using HTML instead of id for non users---vvvvv
-      frontHTML: frontTempId,
-      backHTML: backTempId,
+      frontHTML: frontTemp,
+      backHTML: backTemp,
       // frontTemplate: frontTempId,
       // backTemplate: backTempId,
       size: '6x4'

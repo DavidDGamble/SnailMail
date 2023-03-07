@@ -4,16 +4,43 @@ import { useNavigate } from "react-router-dom";
 import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
+  // const [senderInfo, setSenderInfo] = useState({})
+  // const [receiverInfo, setReceiverInfo] = useState({})
+  const [senderError, setSenderError] = useState(null)
+  const [receiverError, setReceiverError] = useState(null)
   const [viewCheckout, setViewCheckout] = useState(false)
 
-  const { frontTemplate, backTemplate } = props
+  // const { frontTemplate, backTemplate } = props
+  const { postcardInfo, setPostcardInfo } = props
 
-  const handleSubmit = async (bodyInfo) => {
-    const result = await u.createPostcard(bodyInfo)
+  const handleSubmit = async (sender, receiver) => {
+    // const result = await u.createPostcard(bodyInfo)
     
-    if (result.status === 'ready') {
-      setViewCheckout(true)
+    // if (result.status === 'ready') {
+    //   setViewCheckout(true)
+    // }
+    setSenderError(null)
+    setReceiverError(null)
+    const senderResult = await u.createContact(sender)
+    const receiverResult = await u.createContact(receiver)
+    console.log(`SENDER: ${senderResult.addressStatus}`)
+    console.log(`RECEIVER: ${receiverResult.addressStatus}`)
+
+    if (senderResult.addressStatus === 'failed') {
+      setSenderError("Address could not be verified.")
+      return
     }
+    if (receiverResult.addressStatus === 'failed') {
+      setReceiverError("Address could not be verified.")
+      return
+    }
+
+    setPostcardInfo(Object.assign(postcardInfo, {
+      to: sender,
+      from: receiver
+    }))
+    localStorage.setItem('postcardInfo', JSON.stringify(postcardInfo))
+    setViewCheckout(true)
   } 
 
   const navigate = useNavigate()
@@ -42,14 +69,20 @@ function AddressForm(props) {
           firstName: event.target.fromFirstName.value,
           lastName: event.target.fromLastName.value,
         })
-        const body = {
-          to: senderInfo,
-          from: receiverInfo,
-          frontTempId: frontTemplate,
-          backTempId: backTemplate
-        }
-        handleSubmit(body)
+        // setPostcardInfo(Object.assign(postcardInfo, {
+        //   to: senderInfo,
+        //   from: receiverInfo
+        // }))
+        // console.log(postcardInfo)
+        // const body = {
+        //   to: senderInfo,
+        //   from: receiverInfo,
+        //   frontTempId: postcardInfo.frontTemp,
+        //   backTempId: postcardInfo.backTemp
+        // }
+        handleSubmit(senderInfo, receiverInfo)
       }}>
+        {senderError}
         <h3>Sender's Info</h3>
         <input 
           type="text"
@@ -81,6 +114,7 @@ function AddressForm(props) {
           name="toLastName"
           placeholder="Sender's Last Name"
           required />
+        {receiverError}
         <h3>Receiver's Info</h3>
         <input 
           type="text"
@@ -123,8 +157,10 @@ AddressForm.propTypes = {
   // setSenderInfo: PropTypes.func,
   // receiverInfo: PropTypes.object,
   // setReceiverInfo: PropTypes.func,
-  frontTemplate: PropTypes.string,
-  backTemplate: PropTypes.string
+  // frontTemplate: PropTypes.string,
+  // backTemplate: PropTypes.string
+  postcardInfo: PropTypes.object,
+  setPostcardInfo: PropTypes.func
 }
 
 export default AddressForm

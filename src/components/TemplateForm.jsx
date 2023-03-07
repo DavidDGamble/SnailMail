@@ -7,8 +7,10 @@ import * as u from './../utilities/utilities'
 
 function TemplateForm(props) {
   const [selectedImage, setSelectedImage] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
+  const [tempBackInfo, setTempBackInfo] = useState({})
 
-  const { imageUrl, setImageUrl, tempBackInfo, setTempBackInfo, setFrontTemplate, setBackTemplate } = props
+  const { postcardInfo, setPostcardInfo } = props
 
   const uploadFile = () => {
     if (selectedImage == null) return
@@ -24,8 +26,12 @@ function TemplateForm(props) {
     if (imageUrl != null ) {
       const tempFrontHTML = u.createFrontTemp(imageUrl)
       const tempBackHTML = u.createBackTemp(tempBackInfo)
-      setFrontTemplate(tempFrontHTML)
-      setBackTemplate(tempBackHTML)
+      setPostcardInfo(Object.assign(postcardInfo, {
+        frontTemp: tempFrontHTML,
+        backTemp: tempBackHTML
+      }))
+      // setFrontTemplate(tempFrontHTML)
+      // setBackTemplate(tempBackHTML)
       props.handleTemplateForm()
       props.handleAddressForm()
     }
@@ -113,12 +119,14 @@ function TemplateForm(props) {
 }
 
 TemplateForm.propTypes = {
-  imageUrl: PropTypes.string,
-  setImageUrl: PropTypes.func,
-  tempBackInfo: PropTypes.object,
-  setTempBackInfo: PropTypes.func,
-  setFrontTemplate: PropTypes.func,
-  setBackTemplate: PropTypes.func,
+  // imageUrl: PropTypes.string,
+  // setImageUrl: PropTypes.func,
+  // tempBackInfo: PropTypes.object,
+  // setTempBackInfo: PropTypes.func,
+  // setFrontTemplate: PropTypes.func,
+  // setBackTemplate: PropTypes.func,
+  postcardInfo: PropTypes.object,
+  setPostcardInfo: PropTypes.func,
   handleTemplateForm: PropTypes.func,
   handleAddressForm: PropTypes.func
 }

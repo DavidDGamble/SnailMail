@@ -312,7 +312,7 @@ const templateDescription = 'Test template w/ firebase img' // Insert your descr
  * @param {string} description
  * @param {string} address
  */
-async function createContact(firstName, lastName, description, address) {
+async function createContact(bodyObject) {
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -320,16 +320,27 @@ async function createContact(firstName, lastName, description, address) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      firstName: firstName,
-      lastName: lastName,
-      description: description,
-      addressLine1: address,
+      firstName: bodyObject.firstName,
+      lastName: bodyObject.lastName,
+      addressLine1: bodyObject.addressLine1,
+      city: bodyObject.city,
+      provinceOrState: bodyObject.provinceOrState,
+      postalOrZip: bodyObject.postalOrZip
     }),
   };
 
   const resp = await fetch(POSTGRID_URL + '/contacts', requestOptions);
 
   return await resp.json();
+}
+
+const body = {
+  firstName: "David",
+  lastName: "Gamble",
+  addressLine1: "680 NE Webster St",
+  city: "Portland",
+  provinceOrState: "OR",
+  postalOrZip: "97211"
 }
 
 const firstName = "David";
