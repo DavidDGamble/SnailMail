@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
-import { json, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
@@ -18,7 +18,6 @@ function AddressForm(props) {
 
   const navigate = useNavigate()
   useEffect(() => {
-    console.log(viewCheckout)
     if (viewCheckout) navigate('/checkout', { replace: true })
   }, [viewCheckout])
   
