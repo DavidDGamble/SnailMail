@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import SignIn from './SignIn';
-import PostcardControl from './PostcardControl';
 import { auth } from './../firebase';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import "@stripe/stripe-js";
+
+import Header from './Header';
+import SignIn from './SignIn';
+import PostcardControl from './PostcardControl';
+import Checkout from "./Checkout";
+import Success from "./Success";
+import Cancel from "./Cancel";
+
 import './../app.css';
+import './../styles.css';
 
 function App() {
   const [signUpSuccess, setSignUpSuccess] = useState(null)
@@ -61,6 +68,10 @@ function App() {
         <Header
           currUserDisplay={currUser} />
         <Routes>
+          <Route path="/" element={<PostcardControl />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
           <Route path="/sign-in" element={
             <SignIn
               onSignUp={doSignUp}
@@ -70,10 +81,7 @@ function App() {
               signInMessage={signInSuccess}
               signOutMessage={signOutSuccess}
             />} />
-          <Route path="/" element={
-            <PostcardControl />} />
         </Routes>
-        {/* <TemplateForm /> */}
       </div>
     </Router>
   )

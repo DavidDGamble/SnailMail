@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
+import { json, useNavigate } from "react-router-dom";
 import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
+  const [viewCheckout, setViewCheckout] = useState(false)
+
   const { frontTemplate, backTemplate } = props
 
   const handleSubmit = async (bodyInfo) => {
     const result = await u.createPostcard(bodyInfo)
-    const jsonResult = JSON.stringify(result)
     
-    console.log(jsonResult)
-    if (jsonResult.status === 'ready') {
-      console.log(jsonResult)
+    if (result.status === 'ready') {
+      setViewCheckout(true)
     }
   } 
+
+  const navigate = useNavigate()
+  useEffect(() => {
+    console.log(viewCheckout)
+    if (viewCheckout) navigate('/checkout', { replace: true })
+  }, [viewCheckout])
   
   return (
     <div className="address-form">
@@ -44,68 +51,68 @@ function AddressForm(props) {
         }
         handleSubmit(body)
       }}>
-        <h3>Sender's Info</h3><hr/>
+        <h3>Sender's Info</h3>
         <input 
           type="text"
           name="toAddress"
           placeholder="Address" 
-          required />
+          required /><br/>
         <input 
           type="text"
           name="toCity"
           placeholder="City"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="toState"
           placeholder="State of Province"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="toZip"
           placeholder="Postal or Zip Code"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="toFirstName"
           placeholder="Sender's First Name"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="toLastName"
           placeholder="Sender's Last Name"
           required />
-        <h3>Receiver's Info</h3><hr/>
+        <h3>Receiver's Info</h3>
         <input 
           type="text"
           name="fromAddress"
           placeholder="Address"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="fromCity"
           placeholder="City"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="fromState"
           placeholder="State of Province"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="fromZip"
           placeholder="Postal or Zip Code"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="fromFirstName"
           placeholder="Receiver's First Name"
-          required />
+          required /><br/>
         <input 
           type="text"
           name="fromLastName"
           placeholder="Receiver's Last Name"
-          required />
+          required /><br/>
         <button type="submit">Submit</button>
       </form>
     </div>
