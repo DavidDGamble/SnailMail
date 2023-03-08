@@ -1,6 +1,7 @@
-import React from "react";
-// import { Link } from 'react-router-dom';
-import PropTypes from "prop-types";
+import React from "react"
+// import { Link } from 'react-router-dom'
+import PropTypes from "prop-types"
+import './../styles/header.css'
 
 function Header(props) {
   // let welcomeMsg = null;
@@ -18,7 +19,6 @@ function Header(props) {
       </div>  */}
       <h1>Snail Mail</h1>
       {/* <h3 className="welcome-msg">{welcomeMsg}</h3> */}
-      <hr />
     </div>
   )
 }

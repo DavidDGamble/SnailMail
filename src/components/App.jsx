@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import { auth } from './../firebase';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import "@stripe/stripe-js";
+import React, { useState } from 'react'
+import { auth } from './../firebase'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
+import "@stripe/stripe-js"
 
-import Header from './Header';
-import SignIn from './SignIn';
-import PostcardControl from './PostcardControl';
-import Checkout from "./Checkout";
-import Success from "./Success";
-import Cancel from "./Cancel";
-
-import './../app.css';
-import './../styles.css';
+import Header from './Header'
+import SignIn from './SignIn'
+import PostcardControl from './PostcardControl'
+import Checkout from "./Checkout"
+import Success from "./Success"
+import Cancel from "./Cancel"
+import './../styles/app.css'
 
 function App() {
   const [signUpSuccess, setSignUpSuccess] = useState(null)

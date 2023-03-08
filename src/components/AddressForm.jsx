@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import PropTypes from 'prop-types'
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import * as u from './../utilities/utilities'
+import './../styles/addressForm.css'
 
 function AddressForm(props) {
   const [senderError, setSenderError] = useState(null)
   const [receiverError, setReceiverError] = useState(null)
   const [viewCheckout, setViewCheckout] = useState(false)
+  const [isLoading, setLoading] = useState(false)
 
   const { postcardInfo, setPostcardInfo } = props
 
   const handleSubmit = async (sender, receiver) => {
+    setLoading(true)
     setSenderError(null)
     setReceiverError(null)
     const senderResult = await u.createContact(sender)
@@ -32,14 +35,15 @@ function AddressForm(props) {
       from: receiver
     }))
     localStorage.setItem('postcardInfo', JSON.stringify(postcardInfo))
+    setLoading(false)
     setViewCheckout(true)
-  } 
+  }
 
   const navigate = useNavigate()
   useEffect(() => {
     if (viewCheckout) navigate('/checkout', { replace: true })
   }, [viewCheckout])
-  
+
   return (
     <div className="address-form">
       <h1>Sender and Receiver Info</h1>
@@ -61,74 +65,73 @@ function AddressForm(props) {
           firstName: event.target.fromFirstName.value,
           lastName: event.target.fromLastName.value,
         })
-
         handleSubmit(senderInfo, receiverInfo)
       }}>
         {senderError}
         <h3>Sender's Info</h3>
-        <input 
+        <input
           type="text"
           name="toAddress"
-          placeholder="Address" 
-          required /><br/>
-        <input 
+          placeholder="Address"
+          required /><br />
+        <input
           type="text"
           name="toCity"
           placeholder="City"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="toState"
           placeholder="State of Province"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="toZip"
           placeholder="Postal or Zip Code"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="toFirstName"
           placeholder="Sender's First Name"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="toLastName"
           placeholder="Sender's Last Name"
           required />
         {receiverError}
         <h3>Receiver's Info</h3>
-        <input 
+        <input
           type="text"
           name="fromAddress"
           placeholder="Address"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="fromCity"
           placeholder="City"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="fromState"
           placeholder="State of Province"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="fromZip"
           placeholder="Postal or Zip Code"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="fromFirstName"
           placeholder="Receiver's First Name"
-          required /><br/>
-        <input 
+          required /><br />
+        <input
           type="text"
           name="fromLastName"
           placeholder="Receiver's Last Name"
-          required /><br/>
-        <button type="submit">Submit</button>
+          required /><br />
+        <button className="main-btn" type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Submit"}</button>
       </form>
     </div>
   )

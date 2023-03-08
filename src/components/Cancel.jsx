@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import './../styles/cancel.css'
 
 const Cancel = () => {
   const [returnHome, setReturnHome] = useState(false)
@@ -11,12 +12,12 @@ const Cancel = () => {
 
   localStorage.removeItem('postcardInfo')
   return (
-    <div>
+    <div className="cancel">
       <h1>Cancel</h1>
       <h2>Your payment was canceled.</h2>
-      <button onClick={() => {setReturnHome(true)}}>Return Home</button>
+      <button className="main-btn" onClick={() => {setReturnHome(true)}}>Return Home</button>
     </div>
-  );
-};
+  )
+}
 
-export default Cancel;
+export default Cancel

@@ -1,0 +1,29 @@
+body {
+  background-color: black;
+  /* background-image: url("./../img/space-snail.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw; */
+}
+
+.home > p {
+  border: solid black 1px;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: lightskyblue;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.home > h1 {
+  color: white;
+}
+
+.home > h2 {
+  color: white;
+}
+

@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useNavigate } from "react-router-dom";
 
-// import CardIcon from "../images/credit-card.svg";
+import './../styles/checkout.css'
+import CardIcon from "./../img/snail-logo.png";
 // import ProductImage from "../images/product-image.jpg";
-
-import "../styles.css";
 
 let stripePromise;
 
@@ -54,29 +53,31 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <h1>Stripe Checkout</h1>
-      <p className="checkout-title">Snail Mail Postcard</p>
-      <h1 className="checkout-price">$2</h1>
-      {/* <img
+      <div className="stripe">
+        <h1>Stripe Checkout</h1>
+        <p className="checkout-title">Snail Mail Postcard</p>
+        <h1 className="checkout-price">$2</h1>
+        {/* <img
         className="checkout-product-image"
         src={ProductImage}
         alt="Product"
       /> */}
-      <button
-        className="checkout-button"
-        onClick={redirectToCheckout}
-        disabled={isLoading}
-      >
-        <div className="grey-circle">
-          <div className="purple-circle">
-            {/* <img className="icon" src={CardIcon} alt="credit-card-icon" /> */}
+        <button
+          className="checkout-button"
+          onClick={redirectToCheckout}
+          disabled={isLoading}
+        >
+          <div className="grey-circle">
+            <div className="purple-circle">
+              <img className="icon" src={CardIcon} alt="credit-card-icon" />
+            </div>
           </div>
-        </div>
-        <div className="text-container">
-          <p className="text">{isLoading ? "Loading..." : "Buy"}</p>
-        </div>
-      </button><br/><br/>
-      <button onClick={() => {setReturnHome(true)}}>Return Home</button>
+          <div className="text-container">
+            <p className="text">{isLoading ? "Loading..." : "Buy"}</p>
+          </div>
+        </button><br /><br />
+      </div>
+      <button className="main-btn" onClick={() => { setReturnHome(true) }}>Return Home</button>
     </div>
   );
 };

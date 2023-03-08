@@ -1,0 +1,12 @@
+.address-form > h1 {
+  color: white;
+}
+
+.address-form > form > h3 {
+  color: white;
+}
+
+.address-form > form > input {
+  text-align: center;
+  width: 20rem;
+}

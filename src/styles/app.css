@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.main-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #d9dfff 100%);
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+  border: 0.5px solid black;
+  border-radius: 20px;
+  padding: 4px;
+  height: 35px;
+  width: 169px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.main-btn:hover {
+  background: none;
+  background-color: black;
+  border: 0.5px solid white;
+  color: white;
+}

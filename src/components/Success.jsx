@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import * as u from './../utilities/utilities'
+import './../styles/success.css'
 
 const Success = () => {
   const [processed, setProcessed] = useState(false)
@@ -25,10 +26,10 @@ const Success = () => {
   }, [returnHome])
   
   return (
-    <div>
+    <div className="success">
       <h1>Success</h1>
       <h2>Thank you for your purchase!</h2>
-      <button onClick={() => {setReturnHome(true)}}>Return Home</button>
+      <button className="main-btn" onClick={() => {setReturnHome(true)}}>Return Home</button>
     </div>
   );
 };

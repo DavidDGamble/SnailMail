@@ -1,0 +1,11 @@
+.success {
+  border: solid black 1px;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: lightskyblue;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 6rem;
+}

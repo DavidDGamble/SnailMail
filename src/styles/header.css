@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+
+.header {
+  border: solid black 1px;
+  background-color: lightskyblue;
+  border-radius: .5rem;
+  height: 6.7rem;
+  contain: content;
+}
+
+.header > h1 {
+  font-family: 'bangers';
+  font-size: 3rem;
+}
