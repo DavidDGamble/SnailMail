@@ -1,51 +1,38 @@
 import React, { useState } from "react";
-import { db, auth } from './../firebase';
-import PropTypes from 'prop-types'
 import Home from './Home'
 import TemplateForm from './TemplateForm'
 import AddressForm from './AddressForm'
 
-function PostcardControl(props) {
-  // const [imageUrl, setImageUrl] = useState(null)
-  // const [tempBackInfo, setTempBackInfo] = useState({})
-
-  // const [senderInfo, setSenderInfo] = useState({})
-  // const [receiverInfo, setReceiverInfo] = useState({})
-  // const [frontTemplate, setFrontTemplate] = useState(null)
-  // const [backTemplate, setBackTemplate] = useState(null)
-
+function PostcardControl() {
+  const [postcardInfo, setPostcardInfo] = useState({
+    frontTemp: null,
+    backTemp:null,
+    to: null,
+    from: null 
+  })
   const [viewTemplateForm, setViewTemplateForm] = useState(false)
   const [viewAddressForm, setViewAddressForm] = useState(false)
 
-  const handleTemplateForm = () => { setViewTemplateForm(!viewTemplateForm) }
-  const hanldeAddressForm = () => { setViewAddressForm(!viewAddressForm) }
+  const handleTemplateForm = () => { 
+    setViewTemplateForm(true)
+    setViewAddressForm(false)
+  }
+  const hanldeAddressForm = () => { 
+    setViewAddressForm(true)
+    setViewTemplateForm(false) 
+  }
 
   let currVisibleState = null
 
   if (viewTemplateForm) {
     currVisibleState = <TemplateForm
-      // imageUrl={imageUrl}
-      // setImageUrl={setImageUrl}
-      // tempBackInfo={tempBackInfo}
-      // setTempBackInfo={setTempBackInfo} 
-      // frontTemplate={frontTemplate}
-      // setFrontTemplate={setFrontTemplate}
-      // backTemplate={backTemplate}
-      // setBackTemplate={setBackTemplate}
-      postcardInfo={props.postcardInfo}
-      setPostcardInfo={props.setPostcardInfo}
-      handleTemplateForm={handleTemplateForm}
+      postcardInfo={postcardInfo}
+      setPostcardInfo={setPostcardInfo}
       handleAddressForm={hanldeAddressForm} />
   } else if (viewAddressForm) {
     currVisibleState = <AddressForm 
-      // senderInfo={senderInfo}
-      // setSenderInfo={setSenderInfo}
-      // receiverInfo={receiverInfo}
-      // setReceiverInfo={setReceiverInfo}
-      // frontTemplate={frontTemplate}
-      // backTemplate={backTemplate}
-      postcardInfo={props.postcardInfo}
-      setPostcardInfo={props.setPostcardInfo} />
+      postcardInfo={postcardInfo}
+      setPostcardInfo={setPostcardInfo} />
   } else {
     currVisibleState = <Home handleTemplateForm={handleTemplateForm} />
   }
@@ -55,11 +42,6 @@ function PostcardControl(props) {
       {currVisibleState}
     </React.Fragment>
   )
-}
-
-PostcardControl.propTypes = {
-  postcardInfo: PropTypes.object,
-  setPostcardInfo: PropTypes.func
 }
 
 export default PostcardControl

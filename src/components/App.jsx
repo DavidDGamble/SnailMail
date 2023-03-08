@@ -15,13 +15,6 @@ import './../app.css';
 import './../styles.css';
 
 function App() {
-  const [postcardInfo, setPostcardInfo] = useState({
-    frontTemp: null,
-    backTemp:null,
-    to: null,
-    from: null 
-  })
-
   const [signUpSuccess, setSignUpSuccess] = useState(null)
   const [signInSuccess, setSignInSuccess] = useState(null)
   const [signOutSuccess, setSignOutSuccess] = useState(null)
@@ -75,9 +68,7 @@ function App() {
         <Header
           currUserDisplay={currUser} />
         <Routes>
-          <Route path="/" element={<PostcardControl 
-            postcardInfo={postcardInfo}
-            setPostcardInfo={setPostcardInfo} />} />
+          <Route path="/" element={<PostcardControl />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />

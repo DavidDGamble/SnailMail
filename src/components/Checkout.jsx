@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
+import { useNavigate } from "react-router-dom";
 
 // import CardIcon from "../images/credit-card.svg";
 // import ProductImage from "../images/product-image.jpg";
@@ -17,13 +18,14 @@ const getStripe = () => {
 };
 
 const Checkout = () => {
+  const [returnHome, setReturnHome] = useState(false)
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+
   const item = {
     price: process.env.REACT_APP_PRICE_ID,
     quantity: 1
   };
-
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
@@ -45,7 +47,10 @@ const Checkout = () => {
 
   if (stripeError) alert(stripeError);
 
-  
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (returnHome) navigate('/', { replace: true })
+  }, [returnHome])
 
   return (
     <div className="checkout">
@@ -70,7 +75,8 @@ const Checkout = () => {
         <div className="text-container">
           <p className="text">{isLoading ? "Loading..." : "Buy"}</p>
         </div>
-      </button>
+      </button><br/><br/>
+      <button onClick={() => {setReturnHome(true)}}>Return Home</button>
     </div>
   );
 };

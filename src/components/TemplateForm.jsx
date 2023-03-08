@@ -30,9 +30,6 @@ function TemplateForm(props) {
         frontTemp: tempFrontHTML,
         backTemp: tempBackHTML
       }))
-      // setFrontTemplate(tempFrontHTML)
-      // setBackTemplate(tempBackHTML)
-      props.handleTemplateForm()
       props.handleAddressForm()
     }
   }, [imageUrl])
@@ -119,15 +116,8 @@ function TemplateForm(props) {
 }
 
 TemplateForm.propTypes = {
-  // imageUrl: PropTypes.string,
-  // setImageUrl: PropTypes.func,
-  // tempBackInfo: PropTypes.object,
-  // setTempBackInfo: PropTypes.func,
-  // setFrontTemplate: PropTypes.func,
-  // setBackTemplate: PropTypes.func,
   postcardInfo: PropTypes.object,
   setPostcardInfo: PropTypes.func,
-  handleTemplateForm: PropTypes.func,
   handleAddressForm: PropTypes.func
 }
 

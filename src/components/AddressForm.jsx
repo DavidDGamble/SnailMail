@@ -4,21 +4,13 @@ import { useNavigate } from "react-router-dom";
 import * as u from './../utilities/utilities'
 
 function AddressForm(props) {
-  // const [senderInfo, setSenderInfo] = useState({})
-  // const [receiverInfo, setReceiverInfo] = useState({})
   const [senderError, setSenderError] = useState(null)
   const [receiverError, setReceiverError] = useState(null)
   const [viewCheckout, setViewCheckout] = useState(false)
 
-  // const { frontTemplate, backTemplate } = props
   const { postcardInfo, setPostcardInfo } = props
 
   const handleSubmit = async (sender, receiver) => {
-    // const result = await u.createPostcard(bodyInfo)
-    
-    // if (result.status === 'ready') {
-    //   setViewCheckout(true)
-    // }
     setSenderError(null)
     setReceiverError(null)
     const senderResult = await u.createContact(sender)
@@ -69,17 +61,7 @@ function AddressForm(props) {
           firstName: event.target.fromFirstName.value,
           lastName: event.target.fromLastName.value,
         })
-        // setPostcardInfo(Object.assign(postcardInfo, {
-        //   to: senderInfo,
-        //   from: receiverInfo
-        // }))
-        // console.log(postcardInfo)
-        // const body = {
-        //   to: senderInfo,
-        //   from: receiverInfo,
-        //   frontTempId: postcardInfo.frontTemp,
-        //   backTempId: postcardInfo.backTemp
-        // }
+
         handleSubmit(senderInfo, receiverInfo)
       }}>
         {senderError}
@@ -153,12 +135,6 @@ function AddressForm(props) {
 }
 
 AddressForm.propTypes = {
-  // senderInfo: PropTypes.object,
-  // setSenderInfo: PropTypes.func,
-  // receiverInfo: PropTypes.object,
-  // setReceiverInfo: PropTypes.func,
-  // frontTemplate: PropTypes.string,
-  // backTemplate: PropTypes.string
   postcardInfo: PropTypes.object,
   setPostcardInfo: PropTypes.func
 }
