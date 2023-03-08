@@ -10,7 +10,7 @@ function PostcardControl() {
     to: null,
     from: null 
   })
-  const [viewTemplateForm, setViewTemplateForm] = useState(false)
+  const [viewTemplateForm, setViewTemplateForm] = useState(true)
   const [viewAddressForm, setViewAddressForm] = useState(false)
 
   const handleTemplateForm = () => { 

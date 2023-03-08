@@ -84,6 +84,18 @@ textarea {
 }
 
 /* vvvvv-------------Postcard Back-------------vvvvv */
+.address {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.postage {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+}
+
 .postcard-contents {
   position: absolute;
   left: 31.946251768034532px;

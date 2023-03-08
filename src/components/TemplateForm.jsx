@@ -4,6 +4,8 @@ import { storage } from './../firebase'
 import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
 import * as u from './../utilities/utilities'
+import Address from './../img/address.png'
+import Postage from './../img/postage.png'
 import './../styles/templateForm.css'
 
 function TemplateForm(props) {
@@ -81,6 +83,8 @@ function TemplateForm(props) {
           type="text/css"
           href="https://fonts.googleapis.com/css?family=Roboto" />
         <div className="page">
+            <img className="address" src={Address} alt="Address." />
+            <img className="postage" src={Postage} alt="Postage." />
           <div className="postcard-contents">
             <div className="pc-header">{tempBackInfo.header}</div><br />
             <span className="pc-body">{tempBackInfo.body}</span><br />
