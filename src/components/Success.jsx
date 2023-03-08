@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types'
 import * as u from './../utilities/utilities'
 
 const Success = (props) => {
+  const [processed, setProcessed] = useState(false)
+
   const postcardInfo = JSON.parse(localStorage.getItem('postcardInfo'))
   const processPostcard = async (info) => {
-    if (info == null) return
+    if (processed || info == null) return console.log(processed)
     const result = await u.createPostcard(info)
-    console.log(result)
+    console.log(`Status: ${result.status}`)
     localStorage.removeItem('postcardInfo')
+    setProcessed(true)
   }
 
-  processPostcard(postcardInfo)
+  useEffect(() => {
+    processPostcard(postcardInfo)
+  }, [])
   return (
     <div>
       <h1>Success</h1>

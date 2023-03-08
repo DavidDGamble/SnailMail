@@ -5,7 +5,8 @@ import App from './components/App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // Removed <React.StrictMode> because it was causing multiple renders after a successful checkout creating 2 postcards
+  <>
     <App />
-  </React.StrictMode>
+  </>
 );
