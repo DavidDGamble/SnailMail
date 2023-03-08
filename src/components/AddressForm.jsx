@@ -31,8 +31,8 @@ function AddressForm(props) {
     }
 
     setPostcardInfo(Object.assign(postcardInfo, {
-      to: sender,
-      from: receiver
+      to: receiver,
+      from: sender
     }))
     localStorage.setItem('postcardInfo', JSON.stringify(postcardInfo))
     setLoading(false)
