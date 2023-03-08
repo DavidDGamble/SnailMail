@@ -9,6 +9,16 @@
 }
 
 .header > h1 {
+  display: inline-block;
   font-family: 'bangers';
   font-size: 3rem;
+}
+
+.icon-left {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.icon-right {
+  margin-left: 2px;
 }

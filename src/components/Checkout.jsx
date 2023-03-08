@@ -1,50 +1,48 @@
-import { useState, useEffect } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-import { useNavigate } from "react-router-dom";
-
+import { useState, useEffect } from "react"
+import { loadStripe } from "@stripe/stripe-js"
+import { useNavigate } from "react-router-dom"
+import CardIcon from "./../img/snail-logo.png"
 import './../styles/checkout.css'
-import CardIcon from "./../img/snail-logo.png";
-// import ProductImage from "../images/product-image.jpg";
 
-let stripePromise;
+let stripePromise
 
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
+    stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY)
   }
 
-  return stripePromise;
-};
+  return stripePromise
+}
 
 const Checkout = () => {
   const [returnHome, setReturnHome] = useState(false)
-  const [stripeError, setStripeError] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const [stripeError, setStripeError] = useState(null)
+  const [isLoading, setLoading] = useState(false)
 
   const item = {
     price: process.env.REACT_APP_PRICE_ID,
     quantity: 1
-  };
+  }
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
     successUrl: `${window.location.origin}/success`,
     cancelUrl: `${window.location.origin}/cancel`
-  };
+  }
 
   const redirectToCheckout = async () => {
-    setLoading(true);
-    console.log("redirectToCheckout");
+    setLoading(true)
+    console.log("redirectToCheckout")
 
-    const stripe = await getStripe();
-    const { error } = await stripe.redirectToCheckout(checkoutOptions);
-    console.log("Stripe checkout error", error);
+    const stripe = await getStripe()
+    const { error } = await stripe.redirectToCheckout(checkoutOptions)
+    console.log("Stripe checkout error", error)
 
-    if (error) setStripeError(error.message);
-    setLoading(false);
-  };
+    if (error) setStripeError(error.message)
+    setLoading(false)
+  }
 
-  if (stripeError) alert(stripeError);
+  if (stripeError) alert(stripeError)
 
   const navigate = useNavigate()
   useEffect(() => {
@@ -57,11 +55,7 @@ const Checkout = () => {
         <h1>Stripe Checkout</h1>
         <p className="checkout-title">Snail Mail Postcard</p>
         <h1 className="checkout-price">$2</h1>
-        {/* <img
-        className="checkout-product-image"
-        src={ProductImage}
-        alt="Product"
-      /> */}
+        <iframe src="https://giphy.com/embed/cw7d2Xn45rpi8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/channelfrederator-animation-channel-frederator-snails-cw7d2Xn45rpi8"></a></p>
         <button
           className="checkout-button"
           onClick={redirectToCheckout}
@@ -79,7 +73,7 @@ const Checkout = () => {
       </div>
       <button className="main-btn" onClick={() => { setReturnHome(true) }}>Return Home</button>
     </div>
-  );
-};
+  )
+}
 
-export default Checkout;
+export default Checkout

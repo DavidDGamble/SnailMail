@@ -63,7 +63,7 @@ function TemplateForm(props) {
           </div>
         )}
         <br />
-        <label className="img-upload">Upload An Image
+        <label className="img-upload">Upload Image
           <input
             type="file"
             name="myImage"
