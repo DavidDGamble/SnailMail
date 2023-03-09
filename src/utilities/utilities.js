@@ -171,7 +171,8 @@ export async function createPostcard(bodyInfo) {
 //   "updatedAt": "2020-12-23T07:08:17.178Z"
 // }
 
-export function createFrontTemp(url) {
+export function createFrontTemp(url, info) {
+  const { imgOrientation, cardOrientation } = info
   return (
     `<html>
       <head>
@@ -199,19 +200,19 @@ export function createFrontTemp(url) {
               position: absolute;
               margin: 0;
               padding: 0;
-              left: 600.000084102592px;
-              top: -21.00003153847359px;
-              width: 450.00006307694395px;
-              height: 600.0000841025919px;
-              clip: rect(0px, 450.00006307694395, 600.0000841025919, 0px);
+              left: ${cardOrientation.left};
+              top: ${cardOrientation.top};
+              width: ${cardOrientation.width};
+              height: ${cardOrientation.height};
+              clip: ${cardOrientation.clip};
               overflow: visible;
-              transform: rotate(89.9999999999997deg) scaleX(1) scaleY(1);
+              transform: ${cardOrientation.transform};
               transform-origin: top left;
           ">
             <img src=${url}   
                 style="
-                    width: 450.00006307694395px;
-                    height: 600.0000841025919px;
+                    width: ${imgOrientation.width};
+                    height: ${imgOrientation.height};
                     position: absolute;
                     margin: 0;
                     padding: 0;

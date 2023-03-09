@@ -12,9 +12,62 @@ function TemplateForm(props) {
   const [selectedImage, setSelectedImage] = useState(null)
   const [imageUrl, setImageUrl] = useState(null)
   const [tempBackInfo, setTempBackInfo] = useState({})
+  const [isVertical, setVertical] = useState(true)
   const [isLoading, setLoading] = useState(false)
 
   const { postcardInfo, setPostcardInfo } = props
+
+  const verticalImg = {
+    width: '450.00006307694395px',
+    height: '600.0000841025919px',
+    position: 'relative',
+    margin: '0',
+    padding: '0',
+    left: '0',
+    top: '0',
+    marginTop: '0px',
+    marginLeft: '0px',
+    opacity: '1',
+  }
+  const verticalCard = {
+    position: 'relative',
+    margin: '0',
+    padding: '0',
+    left: '600.000084102592px',
+    top: '-21.00003153847359px',
+    width: '450.00006307694395px',
+    height: '600.0000841025919px',
+    clip: 'rect(0px, 450.00006307694395, 600.0000841025919, 0px)',
+    overflow: 'visible',
+    transform: 'rotate(89.9999999999997deg) scaleX(1) scaleY(1)',
+    transformOrigin: 'top left'
+  }
+  const horizontalImg = {
+    width: '613.1147540983611px',
+    height: '408.00000000000034px',
+    position: 'relative',
+    margin: '0',
+    padding: '0',
+    left: '0',
+    top: '0',
+    marginTop: '0px',
+    marginLeft: '0px',
+    opacity: '1'
+  }
+  const horizontalCard = {
+    position: 'relative',
+    margin: '0',
+    padding: '0',
+    left: '1.3859308349106685e-13px',
+    top: '-5.067434470073995e-13px',
+    width: '600px',
+    height: '408.0000000000003px',
+    clip: 'rect(0px, 600, 408.0000000000003, 0px)',
+    overflow: 'visible',
+    transform: 'rotate(0deg) scaleX(1) scaleY(1)',
+    transformOrigin: 'top left'
+  }
+
 
   const uploadFile = () => {
     if (selectedImage == null) return
@@ -29,7 +82,19 @@ function TemplateForm(props) {
 
   useEffect(() => {
     if (imageUrl != null) {
-      const tempFrontHTML = u.createFrontTemp(imageUrl)
+      let imgInfo
+      if (isVertical) {
+        imgInfo = {
+          imgOrientation: verticalImg,
+          cardOrientation: verticalCard
+        }
+      } else {
+        imgInfo = {
+          imgOrientation: horizontalImg,
+          cardOrientation: horizontalCard
+        }
+      }
+      const tempFrontHTML = u.createFrontTemp(imageUrl, imgInfo)
       const tempBackHTML = u.createBackTemp(tempBackInfo)
       setPostcardInfo(Object.assign(postcardInfo, {
         frontTemp: tempFrontHTML,
@@ -55,13 +120,14 @@ function TemplateForm(props) {
         {selectedImage && (
           <div>
             {/* -----------Postcard Front-------------------- */}
-            <div className="page" >
-              <div className='card'>
-                <img src={URL.createObjectURL(selectedImage)} alt="User upload." />
+            <div className="page">
+              <div className='card' style={isVertical ? verticalCard : horizontalCard}>
+                <img style={isVertical ? verticalImg : horizontalImg} src={URL.createObjectURL(selectedImage)} alt="User upload." />
               </div>
             </div>
             {/* -----------Postcard Front-------------------- */}
             <br />
+            <button className="edit-btn" onClick={() => setVertical(!isVertical)}>Rotate</button>
           </div>
         )}
         <br />

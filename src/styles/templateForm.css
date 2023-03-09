@@ -1,4 +1,28 @@
-textarea {
+.edit-btn {
+  background: linear-gradient(180deg, #ffffff 0%, #d9dfff 100%);
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
+  text-align: center;
+  border: 0.5px solid black;
+  border-radius: 20px;
+  padding: 4px;
+  height: 30px;
+  width: 70px;
+  cursor: pointer;
+  margin: auto;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: none;
+  background-color: black;
+  border: 0.5px solid white;
+  color: white;
+}
+
+.postcard-txt > form > textarea {
   height: 8rem;
   width: 25rem;
 }
@@ -56,7 +80,7 @@ textarea {
 }
 
 /* vvvvv-------------Postcard Front-------------vvvvv */
-.card {
+/* .card {
   position: relative;
   margin: 0;
   padding: 0;
@@ -81,7 +105,7 @@ textarea {
   margin-top: 0px;
   margin-left: 0px;
   opacity: 1;
-}
+} */
 
 /* vvvvv-------------Postcard Back-------------vvvvv */
 .address {
