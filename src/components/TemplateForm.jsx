@@ -70,7 +70,7 @@ function TemplateForm(props) {
   
   const handleSendPostcard = () => {
     let noMessage
-    if (tempBackInfo.header === undefined && tempBackInfo.body === undefined && tempBackInfo.closer === undefined && tempBackInfo.name == undefined || tempBackInfo.header === '' && tempBackInfo.body === '' && tempBackInfo.closer === '' && tempBackInfo.name == '') {
+    if ((tempBackInfo.header === undefined && tempBackInfo.body === undefined && tempBackInfo.closer === undefined && tempBackInfo.name === undefined) || (tempBackInfo.header === '' && tempBackInfo.body === '' && tempBackInfo.closer === '' && tempBackInfo.name === '')) {
       noMessage = window.confirm(`Your postcard doesn't contain a message.  Is this what you want?`)
     }
     if (noMessage) {
@@ -143,7 +143,7 @@ function TemplateForm(props) {
             </div>
             {/* -----------Postcard Front-------------------- */}
             <br />
-            <button className="edit-btn" onClick={() => setVertical(!isVertical)}>Rotate</button>
+            <button className="edit-btn" onClick={() => setVertical(!isVertical)} disabled={isLoading}>Rotate</button>
           </div>
         )}
         <br />
@@ -151,6 +151,7 @@ function TemplateForm(props) {
           <input
             type="file"
             name="myImage"
+            disabled={isLoading}
             onChange={(event) => {
               setSelectedImage(event.target.files[0])
             }}
