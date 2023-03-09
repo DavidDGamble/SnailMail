@@ -79,34 +79,6 @@
   background-color: white
 }
 
-/* vvvvv-------------Postcard Front-------------vvvvv */
-/* .card {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  left: 600.000084102592px;
-  top: -21.00003153847359px;
-  width: 450.00006307694395px;
-  height: 600.0000841025919px;
-  clip: rect(0px, 450.00006307694395, 600.0000841025919, 0px);
-  overflow: visible;
-  transform: rotate(89.9999999999997deg) scaleX(1) scaleY(1);
-  transform-origin: top left;
-}
-
-.card > img {
-  width: 450.00006307694395px;
-  height: 600.0000841025919px;
-  position: relative;
-  margin: 0;
-  padding: 0;
-  left: 0;
-  top: 0;
-  margin-top: 0px;
-  margin-left: 0px;
-  opacity: 1;
-} */
-
 /* vvvvv-------------Postcard Back-------------vvvvv */
 .address {
   position: absolute;

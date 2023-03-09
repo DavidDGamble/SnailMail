@@ -67,7 +67,22 @@ function TemplateForm(props) {
     transform: 'rotate(0deg) scaleX(1) scaleY(1)',
     transformOrigin: 'top left'
   }
-
+  
+  const handleSendPostcard = () => {
+    let noMessage
+    if (tempBackInfo.header === undefined && tempBackInfo.body === undefined && tempBackInfo.closer === undefined && tempBackInfo.name == undefined || tempBackInfo.header === '' && tempBackInfo.body === '' && tempBackInfo.closer === '' && tempBackInfo.name == '') {
+      noMessage = window.confirm(`Your postcard doesn't contain a message.  Is this what you want?`)
+    }
+    if (noMessage) {
+      setTempBackInfo({
+        header: '',
+        body: '',
+        closer: '',
+        name: ''
+      })
+    }
+    uploadFile()
+  }
 
   const uploadFile = () => {
     if (selectedImage == null) return
@@ -108,7 +123,8 @@ function TemplateForm(props) {
   let button = null
   if (selectedImage != null) {
     button = <button className="main-btn" 
-      onClick={uploadFile}
+      // onClick={uploadFile}
+      onClick={handleSendPostcard}
       disabled={isLoading} 
     >{isLoading ? "Loading..." : "Send Postcard!"}</button>
   }
