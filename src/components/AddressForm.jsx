@@ -18,8 +18,8 @@ function AddressForm(props) {
     setReceiverError(null)
     const senderResult = await u.createContact(sender)
     const receiverResult = await u.createContact(receiver)
-    console.log(`SENDER: ${senderResult.addressStatus}`)
-    console.log(`RECEIVER: ${receiverResult.addressStatus}`)
+    // console.log(`SENDER: ${senderResult.addressStatus}`)
+    // console.log(`RECEIVER: ${receiverResult.addressStatus}`)
 
     if (senderResult.addressStatus === 'failed') {
       setSenderError("Address could not be verified.")
@@ -54,6 +54,7 @@ function AddressForm(props) {
           city: event.target.toCity.value,
           provinceOrState: event.target.toState.value,
           postalOrZip: event.target.toZip.value,
+          countryCode: event.target.toCountryCode.value,
           firstName: event.target.toFirstName.value,
           lastName: event.target.toLastName.value,
         })
@@ -62,6 +63,7 @@ function AddressForm(props) {
           city: event.target.fromCity.value,
           provinceOrState: event.target.fromState.value,
           postalOrZip: event.target.fromZip.value,
+          countryCode: event.target.fromCountryCode.value,
           firstName: event.target.fromFirstName.value,
           lastName: event.target.fromLastName.value,
         })
@@ -91,14 +93,19 @@ function AddressForm(props) {
           required /><br />
         <input
           type="text"
+          name="toCountryCode"
+          placeholder="2 Letter Country Code"
+          maxLength={2}
+          required /><br />
+        <input
+          type="text"
           name="toFirstName"
           placeholder="Sender's First Name"
           required /><br />
         <input
           type="text"
           name="toLastName"
-          placeholder="Sender's Last Name"
-          required />
+          placeholder="Sender's Last Name" />
         {receiverError}
         <h3>Receiver's Info</h3>
         <input
@@ -123,14 +130,19 @@ function AddressForm(props) {
           required /><br />
         <input
           type="text"
+          name="fromCountryCode"
+          placeholder="2 Letter Country Code"
+          maxLength={2}
+          required /><br />
+        <input
+          type="text"
           name="fromFirstName"
           placeholder="Receiver's First Name"
           required /><br />
         <input
           type="text"
           name="fromLastName"
-          placeholder="Receiver's Last Name"
-          required /><br />
+          placeholder="Receiver's Last Name" /><br />
         <button className="main-btn" type="submit" disabled={isLoading}>{isLoading ? "Loading..." : "Submit"}</button>
       </form>
     </div>
