@@ -46,7 +46,7 @@ export async function createTemplate(tempDescription, tempHTML) {
 // }
 
 export async function createContact(contactInfo) {
-  const { addressLine1, city, provinceOrState, postalOrZip, firstName, lastName } = contactInfo
+  const { addressLine1, city, provinceOrState, postalOrZip, countryCode, firstName, lastName } = contactInfo
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -58,6 +58,7 @@ export async function createContact(contactInfo) {
       city: city,
       provinceOrState: provinceOrState,
       postalOrZip: postalOrZip,
+      countryCode: countryCode,
       firstName: firstName,
       lastName: lastName
     })
