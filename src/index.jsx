@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './components/App';
-
-import image from './img/space-snail.png'
 import './styles/index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

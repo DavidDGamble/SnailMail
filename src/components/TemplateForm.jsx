@@ -202,7 +202,7 @@ function TemplateForm(props) {
             type="text"
             name='name'
             placeholder="Name" /><br />
-          <button className="main-btn" type="submit" disabled={isLoading}>Submit</button>
+          <button className="main-btn" type="submit" disabled={isLoading}>Add Message</button>
         </form>
       </div>
       {button}
