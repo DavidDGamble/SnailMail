@@ -46,6 +46,8 @@ function AddressForm(props) {
 
   return (
     <div className="address-form">
+      <button className="main-btn" onClick={props.handleTemplateForm} type="submit" disabled={isLoading} style={{marginRight: 1.5 + 'rem'}}>Back to Postcard</button>
+      <button className="main-btn" onClick={props.handleHome} type="submit" disabled={isLoading}>Return Home</button>
       <h1>Sender and Receiver Info</h1>
       <form onSubmit={(event) => {
         event.preventDefault()
@@ -151,7 +153,9 @@ function AddressForm(props) {
 
 AddressForm.propTypes = {
   postcardInfo: PropTypes.object,
-  setPostcardInfo: PropTypes.func
+  setPostcardInfo: PropTypes.func,
+  handleTemplateForm: PropTypes.func,
+  handleHome: PropTypes.func
 }
 
 export default AddressForm

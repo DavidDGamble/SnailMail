@@ -113,7 +113,7 @@ function TemplateForm(props) {
       const tempBackHTML = u.createBackTemp(tempBackInfo)
       setPostcardInfo(Object.assign(postcardInfo, {
         frontTemp: tempFrontHTML,
-        backTemp: tempBackHTML
+        backTemp: tempBackHTML,
       }))
       setLoading(false)
       props.handleAddressForm()
@@ -123,7 +123,6 @@ function TemplateForm(props) {
   let button = null
   if (selectedImage != null) {
     button = <button className="main-btn" 
-      // onClick={uploadFile}
       onClick={handleSendPostcard}
       disabled={isLoading} 
     >{isLoading ? "Loading..." : "Send Postcard!"}</button>
@@ -131,6 +130,7 @@ function TemplateForm(props) {
 
   return (
     <div className="temp-form">
+      <button className="main-btn" onClick={props.handleHome} type="submit" disabled={isLoading}>Return Home</button>
       <div className="image">
         <h1>Upload Postcard Image</h1>
         {selectedImage && (
@@ -213,7 +213,8 @@ function TemplateForm(props) {
 TemplateForm.propTypes = {
   postcardInfo: PropTypes.object,
   setPostcardInfo: PropTypes.func,
-  handleAddressForm: PropTypes.func
+  handleAddressForm: PropTypes.func,
+  handleHome: PropTypes.func
 }
 
 export default TemplateForm

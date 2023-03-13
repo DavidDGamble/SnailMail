@@ -6,13 +6,17 @@ import AddressForm from './AddressForm'
 function PostcardControl() {
   const [postcardInfo, setPostcardInfo] = useState({
     frontTemp: null,
-    backTemp:null,
+    backTemp: null,
     to: null,
     from: null 
   })
   const [viewTemplateForm, setViewTemplateForm] = useState(false)
   const [viewAddressForm, setViewAddressForm] = useState(false)
 
+  const handleHome = () => {
+    setViewTemplateForm(false)
+    setViewAddressForm(false)
+  }
   const handleTemplateForm = () => { 
     setViewTemplateForm(true)
     setViewAddressForm(false)
@@ -28,11 +32,14 @@ function PostcardControl() {
     currVisibleState = <TemplateForm
       postcardInfo={postcardInfo}
       setPostcardInfo={setPostcardInfo}
-      handleAddressForm={hanldeAddressForm} />
+      handleAddressForm={hanldeAddressForm} 
+      handleHome={handleHome} />
   } else if (viewAddressForm) {
     currVisibleState = <AddressForm 
       postcardInfo={postcardInfo}
-      setPostcardInfo={setPostcardInfo} />
+      setPostcardInfo={setPostcardInfo}
+      handleTemplateForm={handleTemplateForm}
+      handleHome={handleHome} />
   } else {
     currVisibleState = <Home handleTemplateForm={handleTemplateForm} />
   }
