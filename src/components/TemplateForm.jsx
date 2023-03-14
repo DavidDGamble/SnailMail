@@ -17,6 +17,14 @@ function TemplateForm(props) {
 
   const { postcardInfo, setPostcardInfo } = props
 
+  useEffect(() => {
+    if (postcardInfo.selectedImage != null) {
+       setSelectedImage(postcardInfo.selectedImage)
+       setVertical(postcardInfo.isVertical)
+       setTempBackInfo(postcardInfo.tempBackInfo) 
+    }
+  }, [])
+
   const verticalImg = {
     width: '450.00006307694395px',
     height: '600.0000841025919px',
@@ -80,6 +88,8 @@ function TemplateForm(props) {
         closer: '',
         name: ''
       })
+    } else {
+      return
     }
     uploadFile()
   }
@@ -114,6 +124,9 @@ function TemplateForm(props) {
       setPostcardInfo(Object.assign(postcardInfo, {
         frontTemp: tempFrontHTML,
         backTemp: tempBackHTML,
+        selectedImage: selectedImage,
+        isVertical: isVertical,
+        tempBackInfo: tempBackInfo,
       }))
       setLoading(false)
       props.handleAddressForm()
@@ -188,6 +201,7 @@ function TemplateForm(props) {
           <input className="pc-input"
             type="text"
             name='header'
+            maxLength='22'
             placeholder="Header" /><br />
           <textarea
             type="text"
@@ -197,10 +211,12 @@ function TemplateForm(props) {
           <input className="pc-input"
             type="text"
             name='closer'
+            maxLength='41'
             placeholder="Closer" /><br />
           <input className="pc-input"
             type="text"
             name='name'
+            maxLength='38'
             placeholder="Name" /><br />
           <button className="main-btn" type="submit" disabled={isLoading}>Add Message</button>
         </form>

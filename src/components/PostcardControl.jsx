@@ -5,6 +5,7 @@ import AddressForm from './AddressForm'
 
 function PostcardControl() {
   const [postcardInfo, setPostcardInfo] = useState({
+    selectedImage: null,
     frontTemp: null,
     backTemp: null,
     to: null,

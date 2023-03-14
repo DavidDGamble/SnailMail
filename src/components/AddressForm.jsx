@@ -76,7 +76,7 @@ function AddressForm(props) {
         <input
           type="text"
           name="toAddress"
-          placeholder="Address"
+          placeholder={postcardInfo.from != null ? postcardInfo.from.addressLine1 : "Address"}
           required /><br />
         <input
           type="text"

@@ -49,7 +49,10 @@ const Checkout = () => {
 
   const navigate = useNavigate()
   useEffect(() => {
-    if (returnHome) navigate('/', { replace: true })
+    if (returnHome) {
+      localStorage.removeItem('postcardInfo')
+      navigate('/', { replace: true })
+    }
   }, [returnHome])
 
   return (
