@@ -13,11 +13,14 @@ const Success = () => {
     const result = await u.createPostcard(info)
     console.log(`Status: ${result.status}`)
     localStorage.removeItem('postcardInfo')
+    localStorage.removeItem('paid')
     setProcessed(true)
   }
 
   useEffect(() => {
-    processPostcard(postcardInfo)
+    const paid = localStorage.getItem('paid')
+    if (paid === 'true') processPostcard(postcardInfo)
+    localStorage.removeItem('paid')
   }, [])
 
   const navigate = useNavigate()

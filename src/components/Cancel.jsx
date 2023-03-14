@@ -5,6 +5,11 @@ import './../styles/cancel.css'
 const Cancel = () => {
   const [returnHome, setReturnHome] = useState(false)
 
+  useEffect(() => {
+    localStorage.removeItem('postcardInfo')
+    localStorage.removeItem('paid')
+  }, [])
+
   const navigate = useNavigate()
   useEffect(() => {
     if (returnHome) navigate('/', { replace: true })

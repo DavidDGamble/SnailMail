@@ -32,13 +32,16 @@ const Checkout = () => {
 
   const redirectToCheckout = async () => {
     setLoading(true)
-    console.log("redirectToCheckout")
+    localStorage.setItem('paid', 'true')
 
     const stripe = await getStripe()
     const { error } = await stripe.redirectToCheckout(checkoutOptions)
     console.log("Stripe checkout error", error)
 
-    if (error) setStripeError(error.message)
+    if (error) {
+      setStripeError(error.message)
+      localStorage.removeItem('paid')
+    }
     setLoading(false)
   }
 
@@ -55,7 +58,7 @@ const Checkout = () => {
         <h1>Stripe Checkout</h1>
         <p className="checkout-title">Snail Mail Postcard</p>
         <h1 className="checkout-price">$2.50</h1>
-        <iframe src="https://giphy.com/embed/cw7d2Xn45rpi8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/channelfrederator-animation-channel-frederator-snails-cw7d2Xn45rpi8"></a></p>
+        <iframe src="https://giphy.com/embed/cw7d2Xn45rpi8" width="480" height="270" frameBorder="0" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/channelfrederator-animation-channel-frederator-snails-cw7d2Xn45rpi8"></a></p>
         <button
           className="checkout-button"
           onClick={redirectToCheckout}
