@@ -17,6 +17,13 @@ function PostcardControl() {
   const handleHome = () => {
     setViewTemplateForm(false)
     setViewAddressForm(false)
+    setPostcardInfo({
+      selectedImage: null,
+      frontTemp: null,
+      backTemp: null,
+      to: null,
+      from: null 
+    })
   }
   const handleTemplateForm = () => { 
     setViewTemplateForm(true)

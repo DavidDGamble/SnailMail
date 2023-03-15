@@ -77,19 +77,20 @@ function TemplateForm(props) {
   }
   
   const handleSendPostcard = () => {
-    let noMessage
+    let noMessage = null
     if ((tempBackInfo.header === undefined && tempBackInfo.body === undefined && tempBackInfo.closer === undefined && tempBackInfo.name === undefined) || (tempBackInfo.header === '' && tempBackInfo.body === '' && tempBackInfo.closer === '' && tempBackInfo.name === '')) {
       noMessage = window.confirm(`Your postcard doesn't contain a message.  Is this what you want?`)
-    }
-    if (noMessage) {
-      setTempBackInfo({
-        header: '',
-        body: '',
-        closer: '',
-        name: ''
-      })
-    } else {
-      return
+      if (noMessage) {
+        setTempBackInfo({
+          header: '',
+          body: '',
+          closer: '',
+          name: ''
+        })
+        uploadFile()
+      } else {
+        return
+      }
     }
     uploadFile()
   }
