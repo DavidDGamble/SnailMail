@@ -1,8 +1,8 @@
-# _Snail Mail_
+# [Snail Mail](https://www.snailmail.dev)
 
 #### By: _**David Gamble**_
 
-#### _This is a web app where users can upload photos and create real life snail mail postcards to send to a friend._
+#### _This is a web app where users can upload photos and create real life snail mail postcards to send to a friend.  Click the title above to check out the live site!_
 
 ## Technologies Used
 
