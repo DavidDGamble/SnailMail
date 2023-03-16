@@ -87,7 +87,6 @@ function TemplateForm(props) {
           closer: '',
           name: ''
         })
-        uploadFile()
       } else {
         return
       }
