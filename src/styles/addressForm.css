@@ -10,3 +10,7 @@
   text-align: center;
   width: 20rem;
 }
+
+.error {
+  color: red;
+}

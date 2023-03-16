@@ -18,15 +18,17 @@ function AddressForm(props) {
     setReceiverError(null)
     const senderResult = await u.createContact(sender)
     const receiverResult = await u.createContact(receiver)
-    console.log(`SENDER: ${senderResult.addressStatus}`)
-    console.log(`RECEIVER: ${receiverResult.addressStatus}`)
+    // console.log(`SENDER: ${senderResult.addressStatus}`)
+    // console.log(`RECEIVER: ${receiverResult.addressStatus}`)
 
-    if (senderResult.addressStatus === 'failed') {
-      setSenderError("Address could not be verified.")
-      return
+    if (senderResult.error) {
+      setSenderError(senderResult.error.message)
     }
-    if (receiverResult.addressStatus === 'failed') {
-      setReceiverError("Address could not be verified.")
+    if (receiverResult.error) {
+      setReceiverError(receiverResult.error.message)
+    }
+    if (senderResult.error || receiverResult.error) {
+      setLoading(false)
       return
     }
 
@@ -71,8 +73,8 @@ function AddressForm(props) {
         })
         handleSubmit(senderInfo, receiverInfo)
       }}>
-        {senderError}
         <h3>Sender's Info</h3>
+        <h4 className="error">{senderError}</h4>
         <input
           type="text"
           name="toAddress"
@@ -97,7 +99,7 @@ function AddressForm(props) {
           type="text"
           name="toCountryCode"
           placeholder="2 Letter Country Code"
-          maxLength={2}
+          maxLength='2'
           required /><br />
         <input
           type="text"
@@ -108,8 +110,8 @@ function AddressForm(props) {
           type="text"
           name="toLastName"
           placeholder="Sender's Last Name" />
-        {receiverError}
         <h3>Receiver's Info</h3>
+        <h4 className="error">{receiverError}</h4>
         <input
           type="text"
           name="fromAddress"
@@ -134,7 +136,7 @@ function AddressForm(props) {
           type="text"
           name="fromCountryCode"
           placeholder="2 Letter Country Code"
-          maxLength={2}
+          maxLength='2'
           required /><br />
         <input
           type="text"
