@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import * as u from './../utilities/utilities'
 import Address from './../img/address.png'
 import Postage from './../img/postage.png'
+import Label from './../img/label.png'
 import './../styles/templateForm.css'
 
 function TemplateForm(props) {
@@ -121,7 +122,9 @@ function TemplateForm(props) {
         }
       }
       const tempFrontHTML = u.createFrontTemp(imageUrl, imgInfo)
-      const tempBackHTML = u.createBackTemp(tempBackInfo)
+      //******************************************************** */
+      const tempBackHTML = u.createBackTempNew(tempBackInfo)
+      //******************************************************** */
       setPostcardInfo(Object.assign(postcardInfo, {
         frontTemp: tempFrontHTML,
         backTemp: tempBackHTML,
@@ -182,8 +185,17 @@ function TemplateForm(props) {
         <div className="page">
             <img className="address" src={Address} alt="Address." />
             <img className="postage" src={Postage} alt="Postage." />
+            <div className="logo-bot">
+              <img className="logo-img" src={Label}/>
+            </div>
+            <div className="logo-mid">
+              <img className="logo-img" src={Label}/>
+            </div>
+            <div className="logo-top">
+              <img className="logo-img" src={Label}/>
+            </div>
           <div className="postcard-contents">
-            <div className="pc-header">{tempBackInfo.header}</div><br />
+            <span className="pc-header">{tempBackInfo.header}</span><br />
             <span className="pc-body">{tempBackInfo.body}</span><br />
             <span className="pc-closer">{tempBackInfo.closer}</span><br />
             <span className="pc-name">{tempBackInfo.name}</span>
@@ -207,7 +219,7 @@ function TemplateForm(props) {
           <textarea
             type="text"
             name='body'
-            maxLength='250'
+            maxLength='390'
             placeholder="Body" /><br />
           <input className="pc-input"
             type="text"
@@ -235,3 +247,5 @@ TemplateForm.propTypes = {
 }
 
 export default TemplateForm
+
+// Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore praesentium, sint eaque nulla doloribus error. Voluptatum, enim laborum beatae animi ipsa corrupti libero voluptate. Accusamus odio autem dolores! Ut, exercitationem.
