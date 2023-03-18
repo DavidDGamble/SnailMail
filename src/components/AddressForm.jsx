@@ -16,6 +16,7 @@ function AddressForm(props) {
     setLoading(true)
     setSenderError(null)
     setReceiverError(null)
+    let error = false
     const senderResult = await u.createContact(sender)
     const receiverResult = await u.createContact(receiver)
     // console.log(`SENDER: ${senderResult.addressStatus}`)
@@ -23,11 +24,21 @@ function AddressForm(props) {
 
     if (senderResult.error) {
       setSenderError(senderResult.error.message)
+      error = true
+    }
+    if (senderResult.addressStatus === 'failed') {
+      setSenderError('Address could not be verified.')
+      error = true
     }
     if (receiverResult.error) {
       setReceiverError(receiverResult.error.message)
+      error = true
     }
-    if (senderResult.error || receiverResult.error) {
+    if (receiverResult.addressStatus === 'failed') {
+      setReceiverError('Address could not be verified.')
+      error = true
+    }
+    if (error) {
       setLoading(false)
       return
     }
