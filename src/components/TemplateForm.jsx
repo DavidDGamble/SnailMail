@@ -5,7 +5,6 @@ import { v4 } from 'uuid'
 import PropTypes from 'prop-types'
 import * as u from './../utilities/utilities'
 import Address from './../img/address.png'
-import Postage from './../img/postage.png'
 import Label from './../img/label.png'
 import './../styles/templateForm.css'
 
@@ -121,10 +120,10 @@ function TemplateForm(props) {
           cardOrientation: horizontalCard
         }
       }
+
       const tempFrontHTML = u.createFrontTemp(imageUrl, imgInfo)
-      //******************************************************** */
       const tempBackHTML = u.createBackTempNew(tempBackInfo)
-      //******************************************************** */
+      
       setPostcardInfo(Object.assign(postcardInfo, {
         frontTemp: tempFrontHTML,
         backTemp: tempBackHTML,
@@ -184,15 +183,14 @@ function TemplateForm(props) {
           href="https://fonts.googleapis.com/css?family=Roboto" />
         <div className="page">
             <img className="address" src={Address} alt="Address." />
-            <img className="postage" src={Postage} alt="Postage." />
             <div className="logo-bot">
-              <img className="logo-img" src={Label}/>
+              <img className="logo-img" src={Label} alt="Snail mail logo."/>
             </div>
             <div className="logo-mid">
-              <img className="logo-img" src={Label}/>
+              <img className="logo-img" src={Label} alt="Snail mail logo."/>
             </div>
             <div className="logo-top">
-              <img className="logo-img" src={Label}/>
+              <img className="logo-img" src={Label} alt="Snail mail logo."/>
             </div>
           <div className="postcard-contents">
             <span className="pc-header">{tempBackInfo.header}</span><br />
@@ -247,5 +245,3 @@ TemplateForm.propTypes = {
 }
 
 export default TemplateForm
-
-// Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore praesentium, sint eaque nulla doloribus error. Voluptatum, enim laborum beatae animi ipsa corrupti libero voluptate. Accusamus odio autem dolores! Ut, exercitationem.

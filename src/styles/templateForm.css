@@ -92,12 +92,6 @@
 .address {
   position: absolute;
   top: 32px;
-  left: 32px;
-}
-
-.postage {
-  position: absolute;
-  top: 32px;
   right: 32px;
 }
 
@@ -160,13 +154,10 @@
 
 .postcard-contents {
   position: absolute;
-  /* left: 31.946251768034532px; */
   left: 33.59999999999997px;
-  /* top: 160.0000000000004px; */
   top: 125.15492393555334px;
   transform: rotate(0deg);
   transform-origin: top left;
-  /* width: 320px; */
   width: 310px;
   height: 163px;
   font-family: 'Roboto';

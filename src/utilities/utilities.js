@@ -467,5 +467,3 @@ export function createBackTempNew(backInfo) {
     </html>`
   )
 }
-
-// I am writing a rtest letter to see how many workds i fan fit on this damn [postvared.  it is definitely a lot more that before thats for sure.  I cant believe that this ap[p really works.  I wasnt sure if i would be able to bull it off.  Hopefully I can get a million peopkle to send a postcard.  Wouldnt that be read.  I reall like that i can add a lot more content to the back now. 
