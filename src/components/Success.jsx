@@ -8,6 +8,7 @@ const Success = () => {
   const [returnHome, setReturnHome] = useState(false)
 
   const postcardInfo = JSON.parse(localStorage.getItem('postcardInfo'))
+  
   const processPostcard = async (info) => {
     if (processed || info == null) return console.log(processed)
     const result = await u.createPostcard(info)
