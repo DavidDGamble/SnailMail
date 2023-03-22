@@ -10,7 +10,7 @@ const Success = () => {
   const postcardInfo = JSON.parse(localStorage.getItem('postcardInfo'))
   
   const processPostcard = async (info) => {
-    if (processed || info == null) return console.log(processed)
+    if (processed || info == null) return 
     const result = await u.createPostcard(info)
     console.log(`Status: ${result.status}`)
     localStorage.removeItem('postcardInfo')
