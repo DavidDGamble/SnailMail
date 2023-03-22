@@ -9,7 +9,7 @@ function Home(props) {
         <h1>Welcome to Snail Mail!</h1>
         <h2>How Snail Mail Works</h2>
         <p>Hit the button below to get started creating and sending a postcard with the image of your choice to your friends and family.  On the next page you will have the opportunity to upload an image as well as a message to preview the front and back of your postcard.  After setting up your postcard continue to the next page where you will fill out the addresses of the sender and receiver.  After the addresses provided are verified you will be taken to a stripe payment page.  After a successful payment your postcard information will be sent off to be printed and shipped the following day.</p>
-        <p>This is a work in progress.  I am currently working on a mobile version of Snail Mail that will include the option the create an account to save the images from previous postcards and an address book.  Please reach out to the email below if you come accross any issues, have suggestions or questions.<br/>Thank you!<br/>help.snailmail@gmail.com</p>
+        <p>This is a work in progress.  I am currently working on the option the create an account to save the images from previous postcards and an address book as well as a mobile version of Snail Mail.  Please reach out to the email below if you come accross any issues, have suggestions or questions.<br/>Thank you!<br/>help.snailmail@gmail.com</p>
         <button className="main-btn" onClick={props.handleTemplateForm}>Send A Postcard!</button>
       </div>
   )
