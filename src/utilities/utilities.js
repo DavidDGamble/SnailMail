@@ -457,10 +457,10 @@ export function createBackTempNew(backInfo) {
                         text-decoration: none;
                         white-space: pre-wrap;
                     ">
-                      <span style="font-weight: bold; font-size: 1.5rem;">${backInfo.header}</span>
-                      <span style="float: left">${backInfo.body}</span>
-                      <span style="font-weight: bold; float: left; margin-left: 1rem;">${backInfo.closer}</span>
-                      <span style="float: left; margin-left: 2rem;">${backInfo.name}</span>
+                      <p style="font-weight: bold; font-size: 1.5rem; float: left; margin-left: 1rem;">${backInfo.header}</p>
+                      <p style="float: left">${backInfo.body}</p>
+                      <p style="font-weight: bold; float: left; margin-left: 1rem;">${backInfo.closer}</p>
+                      <p style="float: left; margin-left: 2rem;">${backInfo.name}</p>
                     </div>
         </div>
     </body>
